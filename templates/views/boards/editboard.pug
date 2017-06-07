@@ -1,0 +1,29 @@
+extends ../../layouts/default
+include ../../mixins/flash-messages
+
+block content
+    .w3-content
+        .w3-row-padding.w3-padding-128
+            .w3-modal-content.w3-card-4.w3-round(style='max-width:600px')
+                .w3-container
+                    h3.w3-margin Edit Board
+                    form.w3-content.w3-margin(action="/boards/edit/"+form.slug method="post")
+                        +flash-messages(messages)
+                        .w3-section
+                            label
+                                b Title
+                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='Enter Title' name='title' required='' value=form.title)
+                            label
+                                b Type
+                            select.w3-select.w3-border(name="type")
+                                option(value="" disabled selected).w3-text-black Choose your option
+                                if form.type === "Public"
+                                    option(value="Public" selected ) Public
+                                else
+                                    option(value="Public") Public
+                                if user.type != 'Free'
+                                    if form.type === "Private"
+                                        option(value="Private" selected) Private
+                                    else 
+                                        option(value="Private") Private 
+                            button.w3-button.w3-block.w3-section.w3-padding.w3-gray.w3-hover-green(type='submit') Save

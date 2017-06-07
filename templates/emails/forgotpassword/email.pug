@@ -1,0 +1,26 @@
+html
+    head
+        title
+    body
+        table(style='width:100%;margin-left:auto;marrgin-right:auto;')
+            tbody
+                tr
+                    td(align='center', style='font-size:14px;')
+                        table(style='width:640px')
+                            tbody
+                                tr
+                                    td
+                                        p Hello #{user.username}
+                                        p
+                                            | You recently requested a link to reset your 
+                                            a(href='http://plugplay.co')  plugplay.co
+                                            |  password. Please click the link below:
+                                        p
+                                            a(href='http://plugplay.co' + link) #{'http://plugplay.co' + link}
+                                        p If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.
+                                        p For more questions, feel free to contact us: contact@plugplay.co
+                                        p
+                                            em
+                                                | Thang Phan,
+                                                br
+                                                | Admin plugplay.co

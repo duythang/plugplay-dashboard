@@ -1,0 +1,7 @@
+{
+  "template": "nodejs",
+  "ports": [80],
+  "name": "plugplay-keystone",
+  "logo": "http://keystonejs.com/images/logo.svg",
+  "description": "Plugplay-keystone App Nitrous.io QuickStart"
+}

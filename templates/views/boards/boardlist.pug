@@ -1,0 +1,16 @@
+extends ../../layouts/default
+
+block css
+    link(rel='stylesheet', href='/styles/site/search.css')
+
+block content
+    .w3-content
+        .w3-row-padding.w3-padding-64
+            h3 Public Boards
+            form.w3-margin-bottom(role="search" action="/search" method="get")
+                input.w3-input.w3-border.w3-card-2(type="text" id="keywords" name="keywords" placeholder="Search for Board Name or Author")
+            hr 
+            each board in data.boards.results
+                include public_board
+            include pagination
+            // TODO Why have to include pagination here if not you cannot click boards

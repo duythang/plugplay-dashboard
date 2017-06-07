@@ -1,0 +1,104 @@
+extends ../layouts/default
+
+block content
+	//- First Grid
+	.w3-row-padding.w3-padding-128.w3-container
+		.w3-content.w3-center.w3-margin-top.w3-white
+			img.w3-image(src="images/img_logo.png" style="width:450px;")
+			p.w3-xlarge Makes IoT Close to People
+			button.w3-button.w3-gray.w3-large.w3-margin-top.w3-hover-green(onclick="signin()") Try Now
+	
+			script.
+				function signin(){
+					window.location = "/signin";
+				}
+
+	//- Second Grid
+	.w3-row-padding.w3-container
+		.w3-content.w3-center
+			//img.w3-image(src="images/img_iot.png" style="width:550px;")
+			p.w3-large
+				b PlugPlay 
+				| is an IoT Platform that facilitates the interconnection between IoT devices. 
+			p.w3-large
+				b PlugPlay 
+				| provides Dashboard and Logging services over well-known IoT protocols such as
+			p.w3-large 
+				| MQTT and RESTful to help people easily to use and develop the IoT products.
+	
+	//- Third Grid
+	#contact.w3-row-padding.w3-padding-64.w3-container.w3-light-grey
+		.w3-content.w3-center
+			.w3-half
+				i.fa.fa-users.w3-xxlarge 
+				h3 
+					b #{totalUser}
+					|  Users 
+			.w3-half
+				i.fa.fa-bar-chart.w3-xxlarge 
+				h3 
+					b #{totalBoard}
+					|  Boards 
+	
+	//- Four Grid
+	.w3-row-padding.w3-padding-64.w3-container
+		.w3-content.w3-center
+			p.w3-xlarge How 
+				b PlugPlay 
+				| works
+			img.w3-image.w3-margin-top(src="images/img_arch.png"  style="width:550px;")
+	hr 
+	
+	//- Five Grid
+	.w3-row-padding.w3-padding-64.w3-container
+		.w3-content
+			.w3-third
+				i.fa.fa-gears.w3-xxlarge 
+				h2 Feature
+				p  
+					span.w3-badge.w3-green.w3-margin-right 1
+					| Dashboard service
+				p  
+					span.w3-badge.w3-green.w3-margin-right 2
+					| Logging service
+				p  
+					span.w3-badge.w3-green.w3-margin-right 3
+					| MQTT and RESTful
+				p  
+					span.w3-badge.w3-green.w3-margin-right 4
+					| Open API
+			.w3-third
+				i.fa.fa-microchip.w3-xxlarge 
+				h2 Hardware Support
+				p  
+					span.w3-badge.w3-green.w3-margin-right 1
+					| Arduino
+				p  
+					span.w3-badge.w3-green.w3-margin-right 2
+					| Raspberry Pi
+			.w3-third
+				i.fa.fa-stack-overflow.w3-xxlarge
+				h2 Language Support
+				p  
+					span.w3-badge.w3-green.w3-margin-right 1
+					| C/C++
+				p  
+					span.w3-badge.w3-green.w3-margin-right 2
+					| Python
+				p  
+					span.w3-badge.w3-green.w3-margin-right 3
+					| C#
+				p  
+					span.w3-badge.w3-green.w3-margin-right 4
+					| Java
+				p  
+					span.w3-badge.w3-green.w3-margin-right 5
+					| Javascript
+	hr 
+	
+	//- Six Grid
+	.w3-row-padding.w3-padding-16.w3-container
+		.w3-content.w3-center
+			p.w3-xlarge About our team
+			img.w3-image.w3-circle.w3-margin-top(src="images/cv.png"  style="width:120px;")
+			p Thang Phan
