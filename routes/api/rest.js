@@ -10,8 +10,6 @@ var nullValue = {
     data2 : '',
 };
 
-var prevLength = 0;
-
 
 /**
  * Get Rest Data
@@ -38,7 +36,7 @@ exports.getRestData = function(req, res) {
         if (err) return res.apiError('database error', err);
 		//if (results.length == 0) return res.apiError('not found');
 
-        if (results.length == 0 || (results.length == prevLength)){
+        if (results.length == 0){
             res.apiResponse(
                 nullValue
             );
@@ -47,8 +45,6 @@ exports.getRestData = function(req, res) {
                 JSON.parse(results[0].value)
             );
         } 
-
-        prevLength = results.length;
 		
     });
 
