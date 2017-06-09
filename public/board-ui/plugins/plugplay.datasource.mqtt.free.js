@@ -8,7 +8,7 @@
 	freeboard.loadDatasourcePlugin({
 		"type_name"   : "paho_mqtt",
 		"display_name": "Free MQTT",
-        "description" : "Receive data from an MQTT server.",
+        "description" : "Send/Receive data to/from a MQTT server.",
 		"external_scripts" : [
 			"https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
 		],
@@ -59,7 +59,7 @@
             	"name"        : "topic",
             	"display_name": "Topic",
             	"type"        : "text",
-            	"description" : "The topic to subscribe to",
+            	"description" : "The topic to subscribe and publish",
             	"required"    : true
             },
             {

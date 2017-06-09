@@ -7,7 +7,7 @@
 	freeboard.loadDatasourcePlugin({
 		"type_name"   : "plugplay_mqtt_paho",
 		"display_name": "PlugPlay MQTT",
-        "description" : "Receive data from an MQTT server.",
+        "description" : "Send/Receive data to/from the PlugPlay MQTT server.",
 		"external_scripts" : [
 			"https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
 		],
@@ -33,9 +33,9 @@
             },
 			{
             	name        : "topic",
-            	display_name: "Topic to subscribe",
+            	display_name: "Topic",
             	type        : "text",
-            	description : "The topic to subscribe to",
+            	description : "The topic to subscribe and publish data",
             	required    : true,
             },
 		],
@@ -62,13 +62,13 @@
 		authTopic = currentSettings.board_id + '/' + currentSettings.topic;
 
 		function onConnect() {
-			//console.log("MQTT PlugPlay subscribed");
+			console.log("PlugPlay MQTT subscribed");
 			client.subscribe(authTopic);
 		};
 		
 		function onConnectionLost(responseObject) {
 			if (responseObject.errorCode !== 0)
-				console.log("MQTT PlugPlay onConnectionLost: "+responseObject.errorMessage);
+				console.log("PlugPlay MQTT onConnectionLost: "+responseObject.errorMessage);
 		};
 
 		function onMessageArrived(message) {

@@ -18,13 +18,13 @@ setInterval(function (data){
 
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log('Success');
+                console.log('Dashboard saved success');
                 isSavedMode = 'no';
                 curContentBoard = tmpContentBoard;
             }
             else if (this.readyState == 4 && this.status != 200){
                 isSavedMode = 'no';
-                console.log('Failed : '+ this.status);
+                console.log('Dashboard saved error : '+ this.status);
             }
         };
         

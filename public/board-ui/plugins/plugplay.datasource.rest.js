@@ -7,7 +7,7 @@
 	freeboard.loadDatasourcePlugin({
 		"type_name"   : "plugplay_restful",
 		"display_name": "PlugPlay REST",
-        "description" : "Receive data from an REST server.",
+        "description" : "Send/Receive data to/from the PlugPlay REST server.",
 		"settings"    : [
 			{ 
             	name        : "user_key",
@@ -23,25 +23,24 @@
             },
 			{
             	name        : "topic",
-            	display_name: "Topic to Send or Receive Data",
+            	display_name: "Topic",
             	type        : "text",
-            	description : "The topic to send or receive data",
+            	description : "The topic to send and receive data",
             	required    : true,
             },
             {
             	name        : "recv_data",
             	display_name: "Receive data",
             	type        : "boolean",
-            	description : "If you use this function, the Datasource will load data periodically with a interval",
             	default_value: false,
             },
             {
-            	name        : "interval",
+            	name        : "refresh",
             	display_name: "Refresh Every",
 				suffix: "seconds",
 				type : "number",
             	description : "The value has to be bigger than 2 (seconds)",
-            	default_value: 5
+            	default_value: 3
             }
 
 		],
@@ -59,13 +58,48 @@
 	{
  		var self = this;
 		var data = {};
-		var xhttp, authTopic;
-        var refreshIntervalId;
+		var xhttp = new XMLHttpRequest();
+		var authTopic;
+        var timer;
 		var currentSettings = settings;
 
-		authTopic = '/api/rest/' + currentSettings.user_key + '&' + currentSettings.board_id + '&' + currentSettings.topic;
+		function alertContents(flag) {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                console.log('PlugPlay REST connected');
+                if(flag){
+                    data.msg = JSON.parse(xhttp.responseText);
+			        updateCallback(data);
+                }
+            }
+            else if (xhttp.readyState == 4 && xhttp.status != 200){
+                console.log('PlugPlay REST connected error : '+ xhttp.status);
+            }
+        };
 
-		// Allow datasource to publish mqtt messages from clients
+		function getData() {
+			xhttp.onreadystatechange = alertContents(true);            
+            xhttp.open("GET", authTopic, true);
+            xhttp.setRequestHeader('Content-Type', 'application/json');
+            xhttp.send();
+		}
+
+		function stopTimer() {
+			if (timer) {
+				clearTimeout(timer);
+				timer = null;
+			}
+		}
+
+		function updateTimer() {
+			stopTimer();
+			if(currentSettings.recv_data){
+				authTopic = '/api/rest/' + currentSettings.user_key + '&' + currentSettings.board_id + '&' + currentSettings.topic;
+				if(currentSettings.refresh < 2) currentSettings.refresh = 2;
+				timer = setInterval(getData, currentSettings.refresh * 1000);
+			}
+		}
+
+		// Allow datasource to send rest messages to the REST server
  		self.send = function(value) {
  			if (xhttp) {
 				// pre-process msgs before going out
@@ -90,70 +124,33 @@
  			}
 		}
 
-        function alertContents(flag) {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                //console.log('Connect REST Successfully');
-                if(flag){
-                    data.msg = JSON.parse(xhttp.responseText);
-			        //=================================================
-			        updateCallback(data);
-                }
-            }
-            else if (xhttp.readyState == 4 && xhttp.status != 200){
-
-                console.log('Connect REST Failed : '+ xhttp.status);
-            }
-        };
-
 		// **onSettingsChanged(newSettings)** (required) : A public function we must implement that will be called when a user makes a change to the settings.
 		self.onSettingsChanged = function(newSettings)
 		{			
 			data = {};
-			currentSettings = newSettings;
-            authTopic = '/api/rest/' + currentSettings.user_key + '&' + currentSettings.board_id + '&' + currentSettings.topic;
-            
-			clearInterval(refreshIntervalId);
-            if(currentSettings.recv_data){
-                refreshIntervalId = setInterval(function (){ 
-                    xhttp.onreadystatechange = alertContents(true);            
-                    xhttp.open("GET",authTopic, true);
-                    xhttp.setRequestHeader('Content-Type', 'application/json');
-                    xhttp.send();
-                }, currentSettings.interval*1000); 
-            }
-            
+			currentSettings = newSettings;   
+			updateTimer();
 			self.updateNow();
 		}
 
 		// **updateNow()** (required) : A public function we must implement that will be called when the user wants to manually refresh the datasource
 		self.updateNow = function()
 		{
-			// Don't need to do anything here, can't pull an update from MQTT.
 			data.msg = {device: '',
 				data0: '',
 				data1: '',
 				data2: '',};
-			updateCallback(data);
-			
+			updateCallback(data);	
 		}
 
 		// **onDispose()** (required) : A public function we must implement that will be called when this instance of this plugin is no longer needed. Do anything you need to cleanup after yourself here.
 		self.onDispose = function()
 		{
-			clearInterval(refreshIntervalId);
+			stopTimer();
 		}
 
         // Run at the first time
-        xhttp = new XMLHttpRequest();
-        if(currentSettings.recv_data){
-			if(currentSettings.interval < 2) currentSettings.interval = 2;
-            refreshIntervalId = setInterval(function (){ 
-                    xhttp.onreadystatechange = alertContents(true);            
-                    xhttp.open("GET",authTopic, true);
-                    xhttp.setRequestHeader('Content-Type', 'application/json');
-                    xhttp.send();
-            }, currentSettings.interval*1000);
-        }
-         
+        updateTimer();
+		     
 	}
 }());
