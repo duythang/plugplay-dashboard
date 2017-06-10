@@ -1,9 +1,22 @@
 .w3-third
-    .w3-card-2.w3-margin-bottom
+    .w3-card-2.w3-round.w3-border.w3-margin-bottom.w3-white(style="height:250px;")
         .w3-container.w3-green
             h5
-                a.w3-hover-text-red(href=board.url target="_blank" style="text-decoration:none") #{board.title}
+                a.w3-hover-text-red(href=board.url target="_blank" style="text-decoration:none"): b #{board.title}
         .w3-container.w3-large
-            h6 Author: #{board.author}
-            h6 Type: #{board.type}
-            h6 Created At: #{board._.createdAt.format('Do MMMM YYYY')} 
+            .w3-row
+                .w3-col.s5.m5.l5
+                    h6 Author: 
+                .w3-col.s7.m7.l7
+                    h6
+                        b #{board.author}
+            .w3-row
+                .w3-col.s5.m5.l5
+                    h6 Type: 
+                .w3-col.s7.m7.l7
+                    h6 #{board.type}
+            .w3-row
+                .w3-col.s5.m5.l5
+                    h6 Created at: 
+                .w3-col.s7.m7.l7   
+                    h6 #{board._.createdAt.format('Do MMMM YYYY')} 

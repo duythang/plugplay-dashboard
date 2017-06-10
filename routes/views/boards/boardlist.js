@@ -19,7 +19,7 @@ exports = module.exports = function (req, res) {
 
 		var q = keystone.list('Board').paginate({
 			page: req.query.page || 1,
-			perPage: 9,
+			perPage: 18,
 			maxPages: 5000
 		}); 
 

@@ -11,7 +11,7 @@ COPY ./www/  /app
 
 RUN npm install --save
 RUN apt-get update
-RUN apt-get install -y vim
+RUN apt-get install -y vim git
 
 EXPOSE 80 443
 
