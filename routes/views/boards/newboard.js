@@ -45,6 +45,7 @@ exports = module.exports = function (req, res) {
 		data.createdBy = locals.user.id;
 		data.author = locals.user.username;
 		data.boardId = keystone.utils.randomString(10,"0123456789");
+		data.createdAt = Date.now();
 
 		newBoard.getUpdateHandler(req).process(data, {
 			flashErrors: true,
