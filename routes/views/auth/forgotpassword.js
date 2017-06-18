@@ -32,11 +32,11 @@ exports = module.exports = function (req, res) {
                     engine: 'pug',
                 }).send({
                     user: user,
-                    link: '/resetpassword/' + user.resetPasswordKey,
+                    link: locals.locale + '/resetpassword/' + user.resetPasswordKey,
                 },{
                     subject: req.__('routes.forgotpwd.email_subject'),
                     apiKey: process.env.MAILGUN_API_KEY,
-                    domain: process.env.MAILGUN_DOMAIN,
+                    domain: process.env.MAILGUN_DOMAIN || 'sandbox84623256e49a4acc9dd342407889713b.mailgun.org',
                     to: user.email,
                     from: {
                         name: 'plugplay.co',

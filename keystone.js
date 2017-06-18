@@ -22,15 +22,15 @@ keystone.init({
 	'view engine': 'pug',
 	'port' : process.env.PORT || 3000,
 	
-	//'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost:27017/admin',
-	'mongo': 'mongodb://pdthang:Thangphan90@mongo.plugplay.co:27017/admin', 
+	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost:27017/admin',
+	//'mongo': 'mongodb://pdthang:Thangphan90@mongo.plugplay.co:27017/admin', 
 	'cloudinary config': 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
 
 	// ssl solution 1
 	'ssl port' : process.env.SSLPORT || 3001,
 	'ssl' : 'force',
-	'ssl key':  __dirname + 'web-key.pem',
-	'ssl cert': __dirname + 'web-cert.pem',
+	'ssl key':  'web-key.pem',
+	'ssl cert': 'web-cert.pem',
 	/*/ ssl solution 2 issue
 	'letsencrypt': (process.env.NODE_ENV === 'production') && {
 		email: 'pdthang59@gmail.com',

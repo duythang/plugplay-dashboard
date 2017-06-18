@@ -10,16 +10,16 @@ html
                             tbody
                                 tr
                                     td
-                                        p #{__('templates.email.hello')} #{user.username}
+                                        p  Hello #{user.username}
                                         p
-                                            | #{__('templates.email.line_01')}
-                                            a(href='http://plugplay.co')  plugplay.co
-                                            |  #{__('templates.email.line_02')}
+                                            | You recently requested a link to reset your 
+                                            b plugplay.co  
+                                            | password. Please click the link below:
                                         p
                                             a(href='http://plugplay.co' + link) #{'http://plugplay.co' + link}
-                                        p #{__('templates.email.line_03')}
-                                        p #{__('templates.email.line_04')}
-                                        p
+                                        p   If this email was sent to you by mistake, please ignore it.
+                                        p   For more questions, feel free to contact us: contact@plugplay.co
+                                        p   
                                             em
                                                 | Thang Phan,
                                                 br

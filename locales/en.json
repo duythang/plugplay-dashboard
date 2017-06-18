@@ -73,13 +73,6 @@
 		"500": {
 			"line_01": "Sorry, the site has encountered an error."
 		},
-		"email": {
-			"hello": "Hello",
-			"line_01": "You recently requested a link to reset your",
-			"line_02": "password. Please click the link below:",
-			"line_03": "If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.",
-			"line_04": "For more questions, feel free to contact us: contact@plugplay.co"
-		},
 		"default": {
 			"support": "SUPPORT",
 			"pricing": "PRICING",
@@ -92,7 +85,7 @@
 		"forgotpwd": {
 			"email": "Email",
 			"email_holder": "Enter email",
-			"reset": "Reset My Password"
+			"reset": "Reset Password"
 		},
 		"signup": {
 			"username": "User Name",

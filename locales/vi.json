@@ -15,7 +15,7 @@
 			"err_email": "Xin lỗi, địa chỉ email đã có người sử dụng",
 			"email_subject": "Thay Đổi Mật Khẩu",
 			"err_sendEmail": "Không thể gửi một email để khôi phục lại mật khẩu",
-			"suc_sendEmail": "Chúng tôi đã gửi cho bạn một email để khôi phục lại mật khấu"
+			"suc_sendEmail": "Một email đã được gửi đến bạn"
 		},
 		"resetpwd": {
 			"err_pwdKey": "Xin lỗi, mã số mật khẩu không hợp lệ",
@@ -73,13 +73,6 @@
 		"500": {
 			"line_01": "Xin lỗi, trang mà bạn yêu cầu đã xảy ra lỗi"
 		},
-		"email": {
-			"hello": "Xin chào",
-			"line_01": "You recently requested a link to reset your",
-			"line_02": "password. Please click the link below:",
-			"line_03": "If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.",
-			"line_04": "For more questions, feel free to contact us: contact@plugplay.co"
-		},
 		"default": {
 			"support": "HỖ TRỢ",
 			"pricing": "BẢNG GIÁ",
@@ -92,7 +85,7 @@
 		"forgotpwd": {
 			"email": "Email",
 			"email_holder": "Nhập địa chỉ email của bạn",
-			"reset": "THIẾT LẬP LẠI"
+			"reset": "THIẾT LẬP"
 		},
 		"signup": {
 			"username": "User Name",
@@ -169,7 +162,7 @@
 			"confirm_pwd": "Xác nhận mật khẩu",
 			"confirm_pwd_holder": "Nhập mật khẩu ở trên một lần nữa",
 
-			"reset": "THIẾT LẬP LẠI"
+			"reset": "THIẾT LẬP"
 		},
 		"login": {
 			"email": "Email",
