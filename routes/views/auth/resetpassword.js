@@ -10,8 +10,8 @@ exports = module.exports = function(req, res) {
 		User.model.findOne().where('resetPasswordKey', req.params.key).exec(function(err, userFound) {
 			if (err) return next(err);
 			if (!userFound) {
-				req.flash('error', "Sorry, That reset password key isn't valid.");
-				return res.redirect('/forgotpassword');
+				req.flash('error', req.__('routes.resetpwd.err_pwdKey'));
+				return res.redirect(locals.locale+'/forgotpassword');
 			}
 			locals.key =  req.params.key;
 			next();
@@ -21,19 +21,19 @@ exports = module.exports = function(req, res) {
 	
 	view.on('post', function(next) {
 
-		if (req.body.password.length < 6) {
-			req.flash('error', 'Enter more than 6 characters for password');
-			return res.redirect('/resetpassword/'+req.body.resetkey); // Issue change 'req.params.key' to req.body.resetkey
-		}
-		
 		if (!req.body.password || !req.body.password_confirm) {
-			req.flash('error', "Enter and confirm your new password.");
-			return res.redirect('/resetpassword/'+req.body.resetkey); 
+			req.flash('error', req.__('routes.resetpwd.err_fill'));
+			return res.redirect(locals.locale+'/resetpassword/'+req.body.resetkey); 
 		}
-		
+
+		if (req.body.password.length < 6) {
+			req.flash('error', req.__('routes.resetpwd.err_pwdLength'));
+			return res.redirect(locals.locale+'/resetpassword/'+req.body.resetkey); // Issue change 'req.params.key' to req.body.resetkey
+		}
+			
 		if (req.body.password != req.body.password_confirm) {
-			req.flash('error', 'Make sure both passwords match.');
-			return res.redirect('/resetpassword/'+req.body.resetkey);
+			req.flash('error', req.__('routes.resetpwd.err_pwdMatch'));
+			return res.redirect(locals.locale+'/resetpassword/'+req.body.resetkey);
 		}
 		
         User.model.findOne().where('resetPasswordKey', req.body.resetkey).exec(function(err, userFound) {
@@ -42,8 +42,8 @@ exports = module.exports = function(req, res) {
            	userFound.resetPasswordKey = '';
             userFound.save(function(err) {
                 if (err) return next(err);
-                req.flash('success', 'Your password has been reset, please sign in.');
-                res.redirect('/signin');
+                req.flash('success', req.__('routes.resetpwd.suc_resetPwd'));
+                res.redirect(locals.locale+'/login');
             });
 		});
          

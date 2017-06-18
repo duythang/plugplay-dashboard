@@ -1,7 +1,6 @@
 extends ../../layouts/default
 include ../../mixins/flash-messages
 
-
 block content
     // Page Container
     .w3-content
@@ -14,7 +13,7 @@ block content
                     // Profile
                     .w3-card-2.w3-round.w3-white
                         .w3-container
-                            h4.w3-center My Profile
+                            h4.w3-center #{__('templates.profile.header')} 
                             p.w3-center
                                 a(href='/')
                                     img(src='/images/img_avatar.png', style='width:25%',  alt='Avatar')
@@ -24,7 +23,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-user-o.fa-fw.w3-margin-right.w3-text-theme 
-                                        |  User Name
+                                        | #{__('templates.profile.user_name')} 
                                 .w3-col.s7.m7.l7 
                                     p
                                         b #{form.username}
@@ -32,7 +31,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-meh-o.fa-fw.w3-margin-right.w3-text-theme
-                                        |  Full Name
+                                        |  #{__('templates.profile.full_name')} 
                                 .w3-col.s7.m7.l7 
                                     p
                                         b #{form.name.first} #{form.name.last} 
@@ -40,7 +39,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-phone.fa-fw.w3-margin-right.w3-text-theme
-                                        |  Phone
+                                        |  #{__('templates.profile.phone')} 
                                 .w3-col.s7.m7.l7 
                                     p
                                         b #{form.countryCode} #{form.tel}  
@@ -48,7 +47,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-envelope-o.fa-fw.w3-margin-right.w3-text-theme
-                                        |  Email
+                                        |  #{__('templates.profile.email')} 
                                 .w3-col.s7.m7.l7 
                                     p     
                                         b #{form.email} 
@@ -56,7 +55,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-map-marker.fa-fw.w3-margin-right.w3-text-theme 
-                                        |  From
+                                        |  #{__('templates.profile.from')} 
                                 .w3-col.s7.m7.l7 
                                     p 
                                         b #{form.location} 
@@ -68,7 +67,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-unsorted.fa-fw.w3-margin-right.w3-text-theme
-                                        |  User Type
+                                        |  #{__('templates.profile.user_type')} 
                                 .w3-col.s7.m7.l7
                                     p 
                                         b #{form.type}
@@ -76,7 +75,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-key.fa-fw.w3-margin-right.w3-text-theme
-                                        |  User Key
+                                        |  #{__('templates.profile.user_key')} 
                                 .w3-col.s7.m7.l7
                                     p 
                                         b.w3-text-red #{form.userKey}
@@ -84,7 +83,7 @@ block content
                                 .w3-col.s5.m5.l5
                                     p
                                         i.fa.fa-money.fa-fw.w3-margin-right.w3-text-theme
-                                        |  Upgraded
+                                        |  #{__('templates.profile.upgraded')} 
                                 .w3-col.s7.m7.l7
                                     p 
                                         b #{form._.upgradeUserTypeAt.format('Do MMMM YYYY')}
@@ -101,92 +100,92 @@ block content
                 .w3-col.l7.m7
                     .w3-card-2.w3-round.w3-margin-right.w3-margin-left
                         .w3-bar.w3-light-grey
-                            button.w3-bar-item.w3-button.w3-hover-black.tablink(onclick="openTab(event,'Profile')" class=(tab === 'password' ? null : 'w3-green')) Edit Profile
-                            button.w3-bar-item.w3-button.w3-hover-black.tablink(onclick="openTab(event,'Password')" class=(tab === 'password' ? 'w3-green' : null)) Edit Password
+                            button.w3-bar-item.w3-button.w3-hover-black.tablink(onclick="openTab(event,'Profile')" class=(tab === 'password' ? null : 'w3-green')) #{__('templates.profile.edit_profile')} 
+                            button.w3-bar-item.w3-button.w3-hover-black.tablink(onclick="openTab(event,'Password')" class=(tab === 'password' ? 'w3-green' : null)) #{__('templates.profile.edit_pwd')} 
                         #Profile.w3-container.tab(style=(tab === 'password' ? 'display:none' : null))
-                            form(action='/profile' method="post")
+                            form(action= locale+'/profile' method="post")
                                 .w3-section
                                     .w3-row
                                         .w3-col(style="width:47%")
-                                            label: b First Name
-                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='First name' name='firstname' required='' value=form.name.first)
+                                            label: b #{__('templates.profile.firstname')} 
+                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder=__('templates.profile.firstname_holder') name='firstname' required='' value=form.name.first)
                                         .w3-col(style="width:6%")
                                             label  &nbsp
                                         .w3-col(style="width:47%")
-                                            label: b Last Name
-                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='Last name' name='lastname' required='' value=form.name.last)
+                                            label: b #{__('templates.profile.lastname')} 
+                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder=__('templates.profile.lastname_holder') name='lastname' required='' value=form.name.last)
                                     .w3-row
                                         .w3-col(style="width:47%")
-                                            label: b Country Code 
-                                            include phone
+                                            label: b #{__('templates.profile.country_code')} 
+                                            include countrycode
                                         .w3-col(style="width:6%")
                                             label  &nbsp
                                         .w3-col(style="width:47%")
-                                            label: b Phone
-                                            input.w3-input.w3-border.w3-margin-bottom(type='tel' placeholder='Phone' name='tel' required='' value=form.tel) 
+                                            label: b #{__('templates.profile.phone')} 
+                                            input.w3-input.w3-border.w3-margin-bottom(type='tel' placeholder=__('templates.profile.phone_holder') name='tel' required='' value=form.tel) 
                                     .w3-row    
                                         .w3-col(style="width:47%")
-                                            label: b From
-                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='Where you live' name='location' required='' value=form.location)  
+                                            label: b #{__('templates.profile.from')} 
+                                            input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder=__('templates.profile.from_holder') name='location' required='' value=form.location)  
                                     .w3-center
-                                        button.w3-button.w3-border.w3-section.w3-hover-green(type='submit') Submit
+                                        button.w3-button.w3-border.w3-section.w3-hover-green(type='submit') #{__('templates.profile.submit')} 
                         #Password.w3-container.tab(style=(tab === 'password' ? null : 'display:none'))
-                            form(action='/editpassword' method="post")
+                            form(action= locale+'/editpassword' method="post")
                                 .w3-section   
-                                    label: b New Password
-                                    input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder='Type a new password' name='password' required='')
-                                    label: b Confirm New Password
-                                    input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder='Confirm password' name='password_confirm' required='' )
+                                    label: b #{__('templates.profile.new_pwd')} 
+                                    input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder=__('templates.profile.new_pwd_holder') name='password' required='')
+                                    label: b #{__('templates.profile.confirm_pwd')} 
+                                    input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder=__('templates.profile.confirm_pwd_holder') name='password_confirm' required='' )
                                     .w3-center
-                                        button.w3-button.w3-border.w3-section.w3-hover-green(style='max-weight:100px' type='submit') Submit
+                                        button.w3-button.w3-border.w3-section.w3-hover-green(style='max-weight:100px' type='submit') #{__('templates.profile.submit')} 
                     br
                     // Accordion
                     .w3-card-2.w3-round.w3-margin-right.w3-margin-left
-                        h4.w3-center Try now
+                        h4.w3-center #{__('templates.profile.try_now')} 
                         .w3-white
                             button.w3-button.w3-block.w3-left-align(onclick="goHomePage()")
                                 i.fa.fa-home.fa-fw.w3-margin-right
-                                |  Go to Home Page
+                                |  #{__('templates.profile.go_home')} 
                             button.w3-button.w3-block.w3-left-align(onclick="goBoardList()")
                                 i.fa.fa-calendar-check-o.fa-fw.w3-margin-right
-                                |  Go to Board List
+                                |  #{__('templates.profile.go_board_list')} 
                             button.w3-button.w3-block.w3-left-align(onclick="goNewBoard()")
                                 i.fa.fa-clone.fa-fw.w3-margin-right
-                                |  Create New Board
+                                |  #{__('templates.profile.go_new_board')} 
                             button.w3-button.w3-block.w3-left-align(onclick="goPricing()")
                                 i.fa.fa-handshake-o.fa-fw.w3-margin-right
-                                |  Upgrade your account
+                                |  #{__('templates.profile.upgrade_account')} 
                     br
                     .w3-card-2.w3-round.w3-margin-right.w3-margin-left
                         .w3-container.w3-display-container.w3-center
-                            p If don't want to use our services more, you can delete your account here !
-                            button.w3-button.w3-border.w3-section.w3-hover-green(onclick="document.getElementById('popup').style.display='block'" style="width:150px;") Delete Account  
+                            p #{__('templates.profile.line_01')} 
+                            button.w3-button.w3-border.w3-section.w3-hover-green(onclick="document.getElementById('popup').style.display='block'" style="width:150px;") #{__('templates.profile.delete_acc')}  
                     
                     
                     #popup.w3-modal
                         .w3-modal-content(style="max-width:500px;") 
                             .w3-container.w3-border-bottom.w3-green
                                 span.w3-button.w3-display-topright.w3-green(onclick="document.getElementById('popup').style.display='none'") &times;
-                                h4 Confirm Delete
+                                h4 #{__('templates.profile.confirm_delete')}  
                             .w3-container.w3-large
-                                h5.w3-margin Do you want to delete your account ? 
+                                h5.w3-margin #{__('templates.profile.line_02')}   
                             .w3-container.w3-border-top
-                                button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(onclick="document.getElementById('popup').style.display='none'" style="width:80px;") No
-                                form(action="/delete" method="post")
-                                    button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(type="submit" style="width:80px;") Yes
+                                button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(onclick="document.getElementById('popup').style.display='none'" style="width:100px;") #{__('templates.profile.no')}   
+                                form(action= locale+"/delete" method="post")
+                                    button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(type="submit" style="width:100px;") #{__('templates.profile.yes')}   
 
     script.
         function goHomePage(){
-            window.location = "/";
+            window.location = '#{locale}';
         }
         function goBoardList(){
-            window.location = "/boards";
+            window.location = '#{locale}'+'/boards';
         }
         function goNewBoard(){
-            window.location = "/myboards";
+            window.location = '#{locale}'+'/myboards';
         }
         function goPricing(){
-            window.location = "/pricing";
+            window.location = '#{locale}'+'/pricing';
         }
         function openTab(evt, tabName) {
             var i, x, tablinks;
@@ -201,102 +200,3 @@ block content
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " w3-green";
         }
-
-
-
-
-//-
-    block content
-        //- Page Container
-        .w3-content
-            .w3-row-padding.w3-padding-128
-                //- Profile
-                .w3-modal-content.w3-card-2.w3-round(style='max-width:800px')
-                    +flash-messages(messages)
-                br
-                .w3-modal-content.w3-card-2.w3-round(style='max-width:800px')
-                    .w3-container
-                        h4
-                            b Information
-                        hr
-                        .w3-row
-                            .w3-col.s4.m4.l4
-                                ul.w3-ul
-                                    li 
-                                        i.fa.fa-user-circle-o.fa-fw.w3-margin-right.w3-text-theme
-                                        b Username
-                                    li 
-                                        i.fa.fa-user.fa-fw.w3-margin-right.w3-text-theme
-                                        b Full name
-                                    li 
-                                        i.fa.fa-phone.fa-fw.w3-margin-right.w3-text-theme
-                                        b Phone
-                                    li 
-                                        i.fa.fa-envelope-o.fa-fw.w3-margin-right.w3-text-theme
-                                        b Email
-                                    li 
-                                        i.fa.fa-unsorted.fa-fw.w3-margin-right.w3-text-theme
-                                        b User type
-                                    li 
-                                        i.fa.fa-key.fa-fw.w3-margin-right.w3-text-theme
-                                        b User key
-                            .w3-col.s8.m8.l8
-                                ul.w3-ul
-                                    li #{form.username} &nbsp
-                                    li #{form.name.first} #{form.name.last} &nbsp
-                                    li #{form.countryCode} #{form.tel} &nbsp
-                                    li #{form.email} &nbsp
-                                    li: b #{form.type} &nbsp
-                                    li.w3-text-red: b #{form.userKey} &nbsp
-
-                br
-                //- Accordion 
-                .w3-modal-content.w3-card-2.w3-round(style='max-width:800px')
-                    .w3-bar.w3-grey
-                        button.w3-bar-item.w3-button.tablink(onclick="openTab(event,'Profile')" class=(tab === 'password' ? null : 'w3-green')) Edit Profile
-                        button.w3-bar-item.w3-button.tablink(onclick="openTab(event,'Password')" class=(tab === 'password' ? 'w3-green' : null)) Edit Password
-                    #Profile.w3-container.tab(style=(tab === 'password' ? 'display:none' : null))
-                        form(action='/profile' method="post")
-                            .w3-section
-                                .w3-row
-                                    .w3-col(style="width:40%")
-                                        label: b First Name
-                                        input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='First name' name='firstname' required='' value=form.name.first)
-                                    .w3-col(style="width:5%")
-                                        label  &nbsp
-                                    .w3-col(style="width:40%")
-                                        label: b Last Name
-                                        input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder='Last name' name='lastname' required='' value=form.name.last)
-                                .w3-row
-                                    .w3-col(style="width:40%")
-                                        label: b Country Code 
-                                        include phone
-                                    .w3-col(style="width:5%")
-                                        label  &nbsp
-                                    .w3-col(style="width:40%")
-                                        label: b Phone
-                                        input.w3-input.w3-border.w3-margin-bottom(type='tel' placeholder='Phone' name='tel' required='' value=form.tel)        
-                                button.w3-button.w3-block.w3-gray.w3-section.w3-center.w3-hover-green(type='submit') Submit
-                    #Password.w3-container.tab(style=(tab === 'password' ? null : 'display:none'))
-                        form(action='/editpassword' method="post")
-                            .w3-section   
-                                label: b New Password
-                                input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder='Type a new password' name='password' required='')
-                                label: b Confirm New Password
-                                input.w3-input.w3-border.w3-margin-bottom(type='password' placeholder='Confirm password' name='password_confirm' required='' )
-                                button.w3-button.w3-block.w3-gray.w3-section.w3-center.w3-hover-green(type='submit') Submit
-
-                    script.
-                        function openTab(evt, tabName) {
-                            var i, x, tablinks;
-                            x = document.getElementsByClassName("tab");
-                            for (i = 0; i < x.length; i++) {
-                                x[i].style.display = "none";
-                            }
-                            tablinks = document.getElementsByClassName("tablink");
-                            for (i = 0; i < x.length; i++) {
-                                tablinks[i].className = tablinks[i].className.replace(" w3-green", "");
-                            }
-                            document.getElementById(tabName).style.display = "block";
-                            evt.currentTarget.className += " w3-green";
-                        }

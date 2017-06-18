@@ -25,28 +25,28 @@ html
             #admin-bar
                 #admin-menu
                     #board-tools
-                        a(href='/myboards')
+                        a(href= locale+'/myboards')
                             h1#board-logo.title.bordered #{data.board.title}
                         #board-actions
                             ul.board-toolbar.vertical
                                 li#add-pane(data-bind='click: createPane')
                                     i.icon-plus.icon-white
-                                    label Add Pane
+                                    label #{__('templates.singleboard.add_pane')} 
 
                                 li(data-bind='click: loadDashboardFromLocalFile' style="float:left;")
                                     i.icon-folder-open.icon-white
-                                    label#full-screen Import
+                                    label#full-screen #{__('templates.singleboard.import')} 
                                 li(data-bind="click: saveDashboard" data-pretty="true" style="float:right;")
                                     i.icon-download-alt.icon-white
-                                    label Export                               
+                                    label #{__('templates.singleboard.export')}                                
                     #datasources
-                        h2.title DATASOURCES
+                        h2.title #{__('templates.singleboard.datasources')}
                         .datasource-list-container
                             table#datasources-list.table.table-condensed.sub-table(data-bind='if: datasources().length')
                                 thead
                                     tr
-                                        th Name
-                                        th Last Updated
+                                        th #{__('templates.singleboard.name')}       
+                                        th #{__('templates.singleboard.last_update')}
                                         th &nbsp;
                                 tbody(data-bind='foreach: datasources')
                                     tr
@@ -59,7 +59,7 @@ html
                                                     i.icon-refresh.icon-white
                                                 li(data-bind="pluginEditor: {operation: 'delete', type: 'datasource'}")
                                                     i.icon-trash.icon-white
-                        span.text-button.table-operation(data-bind="pluginEditor: {operation: 'add', type: 'datasource'}") ADD
+                        span.text-button.table-operation(data-bind="pluginEditor: {operation: 'add', type: 'datasource'}") #{__('templates.singleboard.add')} 
             #column-tools.responsive-column-width
                 ul.board-toolbar.left-columns
                     li.column-tool.add(data-bind='click: addGridColumnLeft')

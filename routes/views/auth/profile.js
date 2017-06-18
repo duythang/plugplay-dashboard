@@ -26,8 +26,8 @@ exports = module.exports = function(req, res) {
 			if (!result) return next(err); 
 			
 			result.getUpdateHandler(req).process(userData, function(err) {
-				req.flash('success', 'Changed profile successfully');			
-				return res.redirect('/profile')                   
+				req.flash('success', req.__('routes.profile.suc_changeProfile'));			
+				return res.redirect(locals.locale+'/profile')                   
 			});
         });
 		

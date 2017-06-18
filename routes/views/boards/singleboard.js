@@ -5,12 +5,10 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
-
 	locals.data = {
 		board: {},
 		isBoardEdited: true,
 	};
-
 
 	// Load all boards
 	view.on('init', function (next) {
@@ -55,7 +53,6 @@ exports = module.exports = function (req, res) {
 			next(err);
 		});
 	});
-
 
 	// Render the view
 	view.render('boards/singleboard');

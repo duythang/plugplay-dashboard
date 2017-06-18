@@ -38,13 +38,13 @@ exports = module.exports = function (req, res) {
             
             boardFound.remove(function (err) {
                 if (err) return next(err);
-                req.flash('success', 'Deleted board successfully');
-                return res.redirect('/myboards');
+                req.flash('success', req.__('routes.delBoard.suc_delBoard'));
+                return res.redirect(locals.locale+'/myboards');
             });
 
         });
 
 	});
 
-    view.render('/myboards');
+    view.render('boards/myboards');
 };

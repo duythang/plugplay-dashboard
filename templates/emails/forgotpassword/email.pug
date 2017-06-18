@@ -10,15 +10,15 @@ html
                             tbody
                                 tr
                                     td
-                                        p Hello #{user.username}
+                                        p #{__('templates.email.hello')} #{user.username}
                                         p
-                                            | You recently requested a link to reset your 
+                                            | #{__('templates.email.line_01')}
                                             a(href='http://plugplay.co')  plugplay.co
-                                            |  password. Please click the link below:
+                                            |  #{__('templates.email.line_02')}
                                         p
                                             a(href='http://plugplay.co' + link) #{'http://plugplay.co' + link}
-                                        p If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.
-                                        p For more questions, feel free to contact us: contact@plugplay.co
+                                        p #{__('templates.email.line_03')}
+                                        p #{__('templates.email.line_04')}
                                         p
                                             em
                                                 | Thang Phan,

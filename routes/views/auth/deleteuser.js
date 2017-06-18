@@ -49,8 +49,8 @@ exports = module.exports = function (req, res) {
 			
 			userFound.remove(function (err) {
 				if (err) return next(err);
-				req.flash('success', 'Deleted your account successfully');
-				return res.redirect('/join');
+				req.flash('success', req.__('routes.deluser.suc_del'));
+				return res.redirect(locals.locale+'/signup');
 			});	
 		});
 			

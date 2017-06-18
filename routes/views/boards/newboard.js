@@ -30,8 +30,8 @@ exports = module.exports = function (req, res) {
 		q.exec(function (err, count) { 
 
 			if (count >= numBoard) {
-				req.flash('warning', 'Your number of boards is over ! Contact us to upgrade your account');
-				return res.redirect('/myboards');            		
+				req.flash('warning', req.__('routes.newboard.warn_overBoard'));
+				return res.redirect(locals.locale+'/myboards');            		
 			}
 			next(err);
 		});
@@ -53,12 +53,10 @@ exports = module.exports = function (req, res) {
 			if (err) {
 				locals.validationErrors = err.errors; // no support
 			} else {
-				req.flash('success', 'Your board has been created');
-				//return res.redirect('/boards/' + newBoard.slug);
-				return res.redirect('/myboards');
+				req.flash('success', req.__('routes.newboard.suc_createBoard'));
+				return res.redirect(locals.locale+'/myboards');
 			}
 			next();
-
 		});
 
 	});

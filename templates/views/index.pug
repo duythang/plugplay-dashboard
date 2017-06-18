@@ -5,12 +5,12 @@ block content
 	.w3-row-padding.w3-padding-128.w3-container
 		.w3-content.w3-center.w3-margin-top.w3-white
 			img.w3-image(src="images/img_logo.png" style="width:550px;")
-			p.w3-xlarge Makes IoT Close to People
-			button.w3-button.w3-gray.w3-large.w3-margin-top.w3-hover-green(onclick="signin()") Try Now
+			p.w3-xlarge  #{__('templates.index.sologan')}
+			button.w3-button.w3-gray.w3-large.w3-margin-top.w3-hover-green(onclick="login()") #{__('templates.index.try_now')}
 	
 			script.
-				function signin(){
-					window.location = "/signin";
+				function login(){
+					window.location = '#{locale}'+'/login';
 				}
 	
 	//- Second Grid
@@ -20,19 +20,19 @@ block content
 				i.fa.fa-users.w3-xxlarge 
 				h3 
 					b #{totalUser}
-					|  Users 
+					|  #{__('templates.index.users')}
 			.w3-half
 				i.fa.fa-bar-chart.w3-xxlarge 
 				h3 
 					b #{totalBoard}
-					|  Boards 
+					|  #{__('templates.index.boards')}
 	
 	//- Third Grid
 	.w3-row-padding.w3-padding-64.w3-container
 		.w3-content.w3-center
-			p.w3-xlarge How 
-				b PlugPlay 
-				| works
+			p.w3-xlarge #{__('templates.index.line_01')}
+				b  PlugPlay 
+				| #{__('templates.index.line_02')}
 			img.w3-image.w3-margin-top(src="images/img_arch.png"  style="width:550px;")
 	hr 
 	
@@ -41,7 +41,7 @@ block content
 		.w3-content
 			.w3-third
 				i.fa.fa-gears.w3-xxlarge 
-				h2 Features
+				h2 #{__('templates.index.features')}
 				p  
 					span.w3-badge.w3-green.w3-margin-right 1
 					| Connection service
@@ -59,7 +59,7 @@ block content
 					| Open API
 			.w3-third
 				i.fa.fa-microchip.w3-xxlarge 
-				h2 Hardware Support
+				h2 #{__('templates.index.hardware')}
 				p  
 					span.w3-badge.w3-green.w3-margin-right 1
 					| Arduino
@@ -68,7 +68,7 @@ block content
 					| Raspberry Pi
 			.w3-third
 				i.fa.fa-stack-overflow.w3-xxlarge
-				h2 Language Support
+				h2  #{__('templates.index.language')}
 				p  
 					span.w3-badge.w3-green.w3-margin-right 1
 					| C/C++
@@ -89,6 +89,6 @@ block content
 	//- Five Grid
 	.w3-row-padding.w3-padding-16.w3-container
 		.w3-content.w3-center
-			p.w3-xlarge About our team
-			img.w3-image.w3-circle.w3-margin-top(src="images/img_avatar.png"  style="width:100px;")
+			p.w3-xlarge #{__('templates.index.team')}
+			img.w3-image.w3-circle.w3-margin-top(src="images/img_avatar.png"  style="width:80px;")
 			p Thang Phan

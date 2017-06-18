@@ -5,19 +5,20 @@ var Email = require('keystone-email');
 
 exports = module.exports = function (req, res) {
 
-    var view = new keystone.View(req, res);
+    var view = new keystone.View(req, res),
+        locals = res.locals;
 
     view.on('post', function (next) {
 
         if (!req.body.email) {
-            req.flash('error', "Enter the email address.");
+            req.flash('error', req.__('routes.forgotpwd.err_fill'));
             return next();
         }
 
         User.model.findOne().where('email', req.body.email).exec(function (err, user) {
             if (err) return next(err);
             if (!user) {
-                req.flash('error', "Sorry, That email address is not registered.");
+                req.flash('error', req.__('routes.forgotpwd.err_email'));
                 return next();
             }
 
@@ -33,22 +34,22 @@ exports = module.exports = function (req, res) {
                     user: user,
                     link: '/resetpassword/' + user.resetPasswordKey,
                 },{
-                    subject: 'Reset your password',
+                    subject: req.__('routes.forgotpwd.email_subject'),
                     apiKey: process.env.MAILGUN_API_KEY,
                     domain: process.env.MAILGUN_DOMAIN,
                     to: user.email,
                     from: {
                         name: 'plugplay.co',
-                        email: 'info@plugplay.co',
+                        email: 'contact@plugplay.co',
                     },
                 }, function (err, result) {
                     if (err) {
                         console.error(err);
-                        req.flash('error', 'Error, Cannot send a reset email');
+                        req.flash('error', req.__('routes.forgotpwd.err_sendEmail'));
                         next();
                     } else {
-                        req.flash('success', 'We have emailed you a link to reset your password');
-                        res.redirect('/signin');
+                        req.flash('success', req.__('routes.forgotpwd.suc_sendEmail'));
+                        res.redirect(locals.locale+'/login');
                     }
                 });
             });

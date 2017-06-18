@@ -5,7 +5,7 @@ block content
     .w3-content
         .w3-row-padding.w3-padding-64
             +flash-messages(messages)
-            button.w3-button.w3-border.w3-grey.w3-padding-large.w3-margin-top.w3-hover-green(onclick="newBoard()") New Board
+            button.w3-button.w3-border.w3-grey.w3-padding-large.w3-margin-top.w3-hover-green(onclick="newBoard()") #{__('templates.myboard.new_board')} 
             // The Grid
             .w3-row(style = "margin-top:30px;")
                 // Left Column
@@ -14,45 +14,49 @@ block content
                     .w3-card-2.w3-round.w3-white
                         .w3-container
                             h4
-                                b User Key 
+                                b  #{__('templates.myboard.user_key')} 
                             hr
                             input#password.w3-input.w3-border( type='password' value=user.userKey readonly style="color: #ff0000; font-weight: bold; text-align: center;")
                             input.w3-check.w3-margin-top.w3-margin-bottom(type="checkbox" onchange="checkBox(this);") 
-                            label  Show/Hide
+                            label   #{__('templates.myboard.show_hide')} 
                     br  
                     // Help
                     .w3-card-2.w3-round.w3-white
                         .w3-container
                             h4
-                                b Help
+                                b #{__('templates.myboard.help')} 
                             hr
                             p
                                 i.fa.fa-clone.fa-fw.w3-margin-right
-                                b New Board 
-                                | to create a new board
-                            p
-                                i.fa.fa-pencil.fa-fw.w3-margin-right
-                                b Edit 
-                                | to edit board 's name and privacy
+                                b #{__('templates.myboard.new_board')} 
+                                | #{__('templates.myboard.line_01')} 
                             p
                                 i.fa.fa-list.fa-fw.w3-margin-right
-                                b Data 
-                                | to download board 's data log 
+                                b #{__('templates.myboard.data')} 
+                                | #{__('templates.myboard.line_02')} 
+                            p
+                                i.fa.fa-pencil.fa-fw.w3-margin-right
+                                b #{__('templates.myboard.edit')} 
+                                | #{__('templates.myboard.line_03')} 
+                            p
+                                i.fa.fa-close.fa-fw.w3-margin-right
+                                b #{__('templates.myboard.delete')} 
+                                | #{__('templates.myboard.line_04')} 
                     br
                     // Upgrade
                     .w3-card-2.w3-round.w3-white
                         .w3-container
                             h4
-                                b Upgrade
+                                b #{__('templates.myboard.upgrade')} 
                             hr
                             p
                                 i.fa.fa-hand-o-right.fa-fw.w3-margin-right
-                                |  Need to use more board
+                                |   #{__('templates.myboard.line_05')} 
                             p
                                 i.fa.fa-hand-o-right.fa-fw.w3-margin-right
-                                |  Need to use full plugins 
+                                |   #{__('templates.myboard.line_06')} 
                             .w3-center 
-                                button.w3-button.w3-padding-large.w3-border.w3-hover-green.w3-margin(onclick="upgrade()") Upgrade         
+                                button.w3-button.w3-padding-large.w3-border.w3-hover-green.w3-margin(onclick="upgrade()")  #{__('templates.myboard.upgrade')}     
                     br
                 // End Left Column
                       
@@ -63,11 +67,14 @@ block content
                             .w3-card-2.w3-round.w3-border.w3-margin-right.w3-margin-left.w3-white
                                 .w3-row-padding.w3-center
                                     .w3-col.s4.m4.l4
-                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(href='/download/data/'+ board.boardId style="width:80px;") Data
+                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(href= locale+'/download/data/'+ board.boardId style="width:80px;") 
+                                            | #{__('templates.myboard.data')} 
                                     .w3-col.s4.m4.l4
-                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(href='/boards/edit/' + board.slug style="width:80px;") Edit
+                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(href= locale+'/boards/edit/' + board.slug style="width:80px;") 
+                                            | #{__('templates.myboard.edit')} 
                                     .w3-col.s4.m4.l4
-                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(onclick="document.getElementById('popup').style.display='block'" style="width:80px;") Delete                             
+                                        a.w3-button.w3-light-grey.w3-hover-green.w3-border.w3-section(onclick="document.getElementById('popup').style.display='block'" style="width:80px;") 
+                                            | #{__('templates.myboard.delete')}                              
                                 .w3-row-padding.w3-center
                                     include private_board
                             br
@@ -75,21 +82,21 @@ block content
                                 .w3-modal-content(style="max-width:500px;") 
                                     .w3-container.w3-border-bottom.w3-green
                                         span.w3-button.w3-display-topright.w3-green(onclick="document.getElementById('popup').style.display='none'") &times;
-                                        h4 Confirm Delete
+                                        h4 #{__('templates.myboard.confirm_del')}  
                                     .w3-container.w3-large
-                                        h5.w3-margin Do you want to delete this board ?
+                                        h5.w3-margin #{__('templates.myboard.line_07')}  
                                     .w3-container.w3-border-top
-                                        button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(onclick="document.getElementById('popup').style.display='none'" style="width:80px;") No
-                                        form(action="/boards/delete/" + board.slug method="post")
-                                            button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(type="submit" style="width:80px;") Yes
+                                        button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(onclick="document.getElementById('popup').style.display='none'" style="width:100px;") #{__('templates.myboard.no')}  
+                                        form(action= locale+"/boards/delete/"+board.slug method="post")
+                                            button.w3-button.w3-hover-green.w3-border.w3-right.w3-margin(type="submit" style="width:100px;") #{__('templates.myboard.yes')}
                 // End Right Column
             
         script.           
             function newBoard(){
-                window.location = "/createboard";
+                window.location = '#{locale}'+'/createboard';
             }
             function upgrade(){
-                window.location = "/pricing";
+                window.location = '#{locale}'+'/pricing';
             }
             function checkBox(check_box){
                 var x = document.getElementById("password");
@@ -100,77 +107,3 @@ block content
                     x.setAttribute("type", "password");
                 }             
             }
-
-
-
-//- 
-    // Page Container
-    .w3-content
-        .w3-row-padding.w3-padding-64
-            +flash-messages(messages)
-            // The Grid
-            .w3-row
-                // Left Column
-                .w3-col.m3.l3                               
-                    // Create Button
-                    .w3-card-4.w3-round.w3-white
-                        .w3-container.w3-center
-                            button.w3-button.w3-grey.w3-padding-large.w3-margin.w3-hover-green(onclick="createBoard()") New Board
-                            hr
-                            h5
-                                | User Key: 
-                                b.w3-text-red #{user.userKey}
-                    br  
-                    // Profile
-                    .w3-card-4.w3-round.w3-white
-                        .w3-container
-                            h3
-                                b Helps
-                            hr
-                            p
-                                i.fa.fa-calendar-check-o.fa-fw.w3-margin-right
-                                |  Click 
-                                b New Board 
-                                | to create a new board.
-                            p
-                                i.fa.fa-pencil.fa-fw.w3-margin-right
-                                |  Click 
-                                b Edit 
-                                | to edit name and privacy of a board.
-                            p
-                                i.fa.fa-users.fa-fw.w3-margin-right
-                                |  Click 
-                                b Data 
-                                | to download data log of a board.
-                    br
-                // End Left Column
-                // Right Column
-                .w3-col.m9.l9
-                    .w3-row-padding
-                        if data.boards.length != 0
-                            each board in data.boards 
-                                .w3-card-4.w3-round.w3-white
-                                        .w3-row.w3-padding.w3-center
-                                            .w3-col.s4.m4.l4
-                                                a.w3-button.w3-light-grey.w3-border(href='/download/data/'+ board.boardId style="width:80px;") Data
-                                            .w3-col.s4.m4.l4
-                                                a.w3-button.w3-light-grey.w3-border(href='/boards/edit/' + board.slug style="width:80px;") Edit
-                                            .w3-col.s4.m4.l4
-                                                form(action="/boards/delete/" + board.slug method="post")
-                                                    button.w3-button.w3-light-grey.w3-border(type="submit" style="width:80px;") Delete                             
-                                        .w3-responsive.w3-padding
-                                            table.w3-table.w3-border.w3-centered
-                                                tr
-                                                    //th.w3-center
-                                                    th.w3-text-black Title
-                                                    th.w3-text-black Type
-                                                    th.w3-text-black Created At
-                                                    th.w3-text-black Board Id
-                                                    include private_board
-                                br
-                // End Right Column
-        script.
-            function createBoard(){
-                window.location = "/createboard";
-            }
-

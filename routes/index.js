@@ -21,29 +21,21 @@
 const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
+const i18n = require('i18n');
 
+// Add-in i18n support
+keystone.pre('routes', i18n.init);
+keystone.pre('routes', middleware.detectLang);
 
 // Common Middleware
-keystone.pre('routes', function (req, res, next) { // Configure the navigation bar in Keystone's User UI
-	res.locals.navLinks = [
-        { label: 'BOARDS', key: 'boards', href: '/boards' },
-        { label: 'NEW BOARD', key: 'newboard', href: '/myboards' },
-        //{ label: 'PRICING', key: 'pricing', href: '/pricing' },
-        //{ label: 'SUPPORT', key: 'support', href: '' },
-	];
-	res.locals.user = req.user;  // Init locals user variable
-	next();
-});
-
+keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function (req, res, next) {
 	res.status(404).render('errors/404');
 });
 
-
 // Import Route Controllers
-
 var routes = {
 	download: importRoutes('./download'),
 	views: importRoutes('./views'),
@@ -52,14 +44,13 @@ var routes = {
 
 
 // Setup Route Bindings
-
 exports = module.exports = function (app) {
 
 	// Views 
 	app.get('/', routes.views.index);
-    app.all('/join', routes.views.auth.join);
-    app.all('/signin', routes.views.auth.signin);
-    app.get('/signout', routes.views.auth.signout);
+    app.all('/signup', routes.views.auth.signup);
+    app.all('/login', routes.views.auth.login);
+    app.get('/logout', routes.views.auth.logout);
     app.all('/forgotpassword', routes.views.auth.forgotpassword);
     app.post('/resetpassword', keystone.security.csrf.middleware.validate, routes.views.auth.resetpassword); 
     app.get('/resetpassword/:key', keystone.security.csrf.middleware.init, routes.views.auth.resetpassword);

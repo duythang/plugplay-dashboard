@@ -1,17 +1,17 @@
 .w3-quarter
-    p.w3-text-black: b Title
+    p.w3-text-black: b #{__('templates.private_board.title')}
     p.w3-hover-text-red
-        a(href=board.url target="_blank" style="text-decoration:none;"): b #{board.title}
+        a(href= locale+board.url target="_blank" style="text-decoration:none;"): b #{board.title}
     hr
 .w3-quarter
-    p.w3-text-black: b Type
+    p.w3-text-black: b #{__('templates.private_board.type')}
     p #{board.type}
     hr
 .w3-quarter
-    p.w3-text-black: b Created At
+    p.w3-text-black: b #{__('templates.private_board.created_at')}
     p #{board._.createdAt.format('Do MMMM YYYY')}
     hr
 .w3-quarter
-    p.w3-text-black: b Board Id
+    p.w3-text-black: b #{__('templates.private_board.board_id')}
     p.w3-text-red: b #{board.boardId}  
     hr

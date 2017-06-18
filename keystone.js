@@ -1,16 +1,14 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-
 require('dotenv').load();
 
-// Require keystone
-
-var keystone = require('keystone');
+// Require keystone and i18n
+var keystone = require('keystone'),
+	i18n = require('i18n');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
-
 keystone.init({
 
 	'name': 'plugplay-web',
@@ -31,8 +29,8 @@ keystone.init({
 	// ssl solution 1
 	'ssl port' : process.env.SSLPORT || 3001,
 	'ssl' : 'force',
-	'ssl key': 'ssl-privkey-key.pem',
-	'ssl cert': 'ssl-fullchain-cert.pem',
+	'ssl key':  __dirname + 'ssl-privkey-key.pem',
+	'ssl cert': __dirname + 'ssl-fullchain-cert.pem',
 	/*/ ssl solution 2 issue
 	'letsencrypt': (process.env.NODE_ENV === 'production') && {
 		email: 'pdthang59@gmail.com',
@@ -59,13 +57,11 @@ keystone.init({
 });
 
 // Load your project's Models
-
 keystone.import('models');
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
-
 keystone.set('locals', {
 	_: require('lodash'), // Can use "underscore"
 	env: keystone.get('env'),
@@ -77,12 +73,19 @@ keystone.set('locals', {
 	chartbeat_domain: keystone.get('chartbeat domain')
 });
 
-// Load your project's Routes
+// Configure i18n
+	i18n.configure({
+		locales:['en', 'vi'],
+		directory: __dirname + '/locales',
+		autoReload: true, 
+		syncFiles: true, 
+		objectNotation: true 
+	});
 
+// Load your project's Routes
 keystone.set('routes', require('./routes'));
 
 // Configure the navigation bar in Keystone's Admin UI
-
 keystone.set('nav', {
 	'USER': 'users',
 	'BOARD': 'boards',

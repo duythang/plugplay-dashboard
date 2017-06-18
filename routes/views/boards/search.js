@@ -28,8 +28,7 @@ exports = module.exports = function(req, res) {
 		).sort({ score : { $meta : 'textScore' } }).
 			limit(20).
 			exec(function(error, results) {
-				if(error) console.log(error);
-				
+				if(error) console.log(error);			
  				locals.data.boards = results
 				next();
 		});

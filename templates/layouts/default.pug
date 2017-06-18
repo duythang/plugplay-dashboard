@@ -24,30 +24,42 @@ html
 		.w3-top
 			.w3-bar.w3-grey.w3-card-2.w3-left-align.w3-large
 
-				a.w3-bar-item.w3-button.w3-padding-large.w3-hover-black(href='/')
+				a.w3-bar-item.w3-button.w3-padding-large.w3-hover-black(href= locale)
 					i.w3-xlarge.fa.fa-home
 
+				//------------------ For Large Screens ----------------------
+				//- Left Side 
 				//- Attach links for buttons on bar
 				each link in navLinks
 					a.w3-bar-item.w3-button.w3-hide-small.w3-hide-medium.w3-padding-large.w3-hover-black(class=(section === link.key ? 'w3-green' : null) href=link.href )=link.label
 
 				.w3-dropdown-hover.w3-hide-small.w3-hide-medium
-					button.w3-button.w3-padding-large.w3-hover-black(class=(section === 'support' ? 'w3-green' : null)) SUPPORT
+					button.w3-button.w3-padding-large.w3-hover-black(class=(section === 'support' ? 'w3-green' : null)) #{__('templates.default.support')}
 					.w3-dropdown-content.w3-bar-block.w3-card-4
-						a.w3-bar-item.w3-button.w3-hover-black(href='/pricing') PRICING
+						a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/pricing') #{__('templates.default.pricing')}
 						//-a.w3-bar-item.w3-button.w3-hover-black(href='') TUTORIALS
 						//-a.w3-bar-item.w3-button.w3-hover-black(href='') ISSUES
 				
+				.w3-dropdown-hover.w3-hide-small.w3-hide-medium
+					a.w3-button.w3-padding-large.w3-hover-black
+						i.w3-xlarge.fa.fa-globe
+					.w3-dropdown-content.w3-bar-block.w3-card-4
+						a.w3-bar-item.w3-button.w3-hover-black(href='/en') ENGLISH
+						a.w3-bar-item.w3-button.w3-hover-black(href='/vi') TIẾNG VIỆT
+				 
+				//- Right Side 
 				if user
 					.w3-dropdown-hover.w3-right.w3-hide-small.w3-hide-medium
-						button.w3-button.w3-padding-large.w3-hover-black(class=(section === 'user' ? 'w3-green' : null)) USER 
+						button.w3-button.w3-padding-large.w3-hover-black(class=(section === 'user' ? 'w3-green' : null)) #{__('templates.default.user')} 
 						.w3-dropdown-content.w3-bar-block.w3-card-4(style="right:0")
-							a.w3-bar-item.w3-button.w3-hover-black(href='/profile') PROFILE
-							a.w3-bar-item.w3-button.w3-hover-black(href='/signout') SIGNOUT
+							a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/profile') #{__('templates.default.profile')} 
+							a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/logout') #{__('templates.default.logout')} 
 				else
-					a.w3-right.w3-bar-item.w3-button.w3-hide-small.w3-hide-medium.w3-padding-large.w3-right.w3-hover-black(class=(section === 'signin' ? 'w3-green' : null) href='/signin') SIGNIN
+					a.w3-right.w3-bar-item.w3-button.w3-hide-small.w3-hide-medium.w3-padding-large.w3-right.w3-hover-black(class=(section === 'login' ? 'w3-green' : null) href= locale+'/login') 
+						| #{__('templates.default.login')} 
 				
-				//- For Small and Medium Screens 
+				
+				//------------------ For Small and Medium Screens  ----------------- 
 				a.w3-bar-item.w3-button.w3-hide-large.w3-right.w3-padding-large.w3-large.w3-hover-black(href='javascript:void(0);', onclick='menu_open()')
 					i.fa.fa-bars
 			#menu.w3-bar-block.w3-grey.w3-hide.w3-hide-large.w3-large
@@ -55,24 +67,29 @@ html
 					a.w3-bar-item.w3-button.w3-padding-large.w3-hover-black(class=(section === link.key ? 'w3-green' : null) href=link.href)= link.label
 				
 				a#supportBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(class=(section === 'support' ? 'w3-green' : 'w3-grey') href='javascript:void(0)' onclick='supportClick()') 
-					| SUPPORT   
+					| #{__('templates.default.support')}
 					i.fa.fa-caret-down
 				#support.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
-					a.w3-bar-item.w3-button.w3-hover-black(href='/pricing') PRICING
+					a.w3-bar-item.w3-button.w3-hover-black(href= locale +'/pricing') #{__('templates.default.pricing')} 
 					//-a.w3-bar-item.w3-button.w3-hover-black(href='') TUTORIALS
 					//-a.w3-bar-item.w3-button.w3-hover-black(href='') ISSUES
-
-				
+			
 				if user
 					a#userBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(class=(section === 'user' ? 'w3-green' : 'w3-grey') onclick='userClick()') 
-						| USER   
+						| #{__('templates.default.user')} 
 						i.fa.fa-caret-down
 					#user.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
-						a.w3-bar-item.w3-button.w3-hover-black(href='/profile') PROFILE
-						a.w3-bar-item.w3-button.w3-hover-black(href='/signout') SIGNOUT
+						a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/profile') #{__('templates.default.profile')} 
+						a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/logout') #{__('templates.default.logout')} 
 				else
-					a.w3-bar-item.w3-button.w3-padding-large.w3-right.w3-hover-black(class=(section === 'signin' ? 'w3-green' : null) href='/signin') SIGNIN
-			
+					a.w3-bar-item.w3-button.w3-padding-large.w3-right.w3-hover-black(class=(section === 'login' ? 'w3-green' : null) href= locale+'/login') 
+						| #{__('templates.default.login')} 
+
+				a#langBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(onclick='langClick()') 
+					i.w3-xlarge.fa.fa-globe 
+				#lang.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
+					a.w3-bar-item.w3-button.w3-hover-black(href='/en') ENGLISH
+					a.w3-bar-item.w3-button.w3-hover-black(href='/vi') TIẾNG VIỆT
 
 		//- content
 		block content
@@ -80,7 +97,7 @@ html
 		footer.w3-container.w3-padding-24.w3-center.w3-grey
 			block pagination
 			.w3-padding-16
-				h6 Follow Us
+				h6 #{__('templates.default.follow')} 
 				a.w3-margin.w3-hover-text-indigo(href='https://www.facebook.com/groups/1803676396562541', target='_blank')
 					i.fa.fa-facebook-official(style='font-size:35px;')
 				a.w3-margin.w3-hover-text-red(href='https://www.youtube.com/channel/UCcHEwX_AQjQ2SnVdfQn0VPA', target='_blank')
@@ -89,12 +106,13 @@ html
 					i.fa.fa.fa-github-square(style='font-size:35px;')
 			p
 				| Made by 
-				a.w3-hover-text-orange(href='/' target='_blank' style="text-decoration:none;font-weight: bold;") plugplay.co
+				a.w3-hover-text-orange(href= locale target='_blank' style="text-decoration:none;font-weight: bold;") plugplay.co
 		script.
 			// Used to toggle the menu on small screens when clicking on the menu button
 			var x = document.getElementById("menu");
 			var y = document.getElementById("support");
 			var z = document.getElementById("user");
+			var l = document.getElementById("lang");
 
 			function menu_open() {
 				if (x.className.indexOf("w3-show") == -1) {
@@ -120,9 +138,17 @@ html
 					z.className = z.className.replace(" w3-show", "");
 				}
 			}
+
+			function langClick() {
+				if (l.className.indexOf("w3-show") == -1) {
+					l.className += " w3-show";
+				} else {
+					l.className = z.className.replace(" w3-show", "");
+				}
+			}
 		
 		//- javascript libs
-		block page-js
+		block page-js 
 
 		//- Google analytics		
 		if env === 'production'

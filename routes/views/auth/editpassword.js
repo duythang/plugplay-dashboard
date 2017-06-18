@@ -17,21 +17,21 @@ exports = module.exports = function(req, res) {
 
 			function(cb) {
 
-				if (req.body.password.length < 6) {
-					req.flash('error', "Enter more than 6 characters for password");					
-					return cb(true);
-				}
-
 				if (!req.body.password || !req.body.password_confirm) {
-					req.flash('error', "Enter all required fields");
+					req.flash('error', req.__('routes.editpwd.err_fill'));
 					return cb(true);
 				}
 
-                if ( req.body.password != req.body.password_confirm) {
-					//req.flash('error', { title: "Error", detail: "Two passwords don't match"});
-					req.flash('error', "Two passwords don't match");
+				if (req.body.password.length < 6) {
+					req.flash('error', req.__('routes.editpwd.err_pwdLength'));					
 					return cb(true);
-				}
+				}    
+
+				if ( req.body.password != req.body.password_confirm) {
+					//req.flash('error', { title: "Error", detail: "Two passwords don't match"});
+					req.flash('error', req.__('routes.editpwd.err_pwdMatch'));
+					return cb(true);
+				}    
 
 				return cb();
 			},
@@ -59,12 +59,12 @@ exports = module.exports = function(req, res) {
 			if (err) return next();
 			
 			var onSuccess = function() {
-				req.flash('success', 'Changed password successfully');
- 				res.redirect('/profile');
+				req.flash('success', req.__('routes.editpwd.suc_changePwd'));
+ 				res.redirect(locals.locale+'/profile');
 			}
 			
 			var onFail = function(e) {
-				req.flash('error', 'There was a problem signing you up, please try again.');
+				req.flash('error', req.__('routes.editpwd.err_'));
 				return next();
 			}
 			

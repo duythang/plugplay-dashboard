@@ -40,7 +40,7 @@ exports = module.exports = function (req, res) {
             title: req.body.title,
             type: req.body.type,
             createdBy: locals.user.id,
-            createdAt: Date.now()     
+            //createdAt: Date.now()     
         };
 
 		var q = keystone.list('Board').model.findOne({ slug: req.params.boardslug }).exec(function(err, result) {
@@ -49,10 +49,8 @@ exports = module.exports = function (req, res) {
             
             result.getUpdateHandler(req).process(boardData, function(err) {   
 
-                req.flash('success', 'Changed board successfully');	
-				//return res.redirect('/boards/edit/' + req.params.boardslug);
-                //return next(err);
-				return res.redirect('/myboards') 
+                req.flash('success', req.__('routes.editboard.suc_changeBoard'));	
+				return res.redirect(locals.locale+'/myboards') 
 
             });
 

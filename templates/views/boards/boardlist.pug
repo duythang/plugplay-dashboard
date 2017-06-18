@@ -6,9 +6,9 @@ block css
 block content
     .w3-content
         .w3-row-padding.w3-padding-64
-            h3 Public Boards
-            form.w3-margin-bottom(role="search" action="/search" method="get")
-                input.w3-input.w3-border.w3-card-2(type="text" id="keywords" name="keywords" placeholder="Search for Board Name or Author")
+            h3 #{__('templates.boardlist.header')} 
+            form.w3-margin-bottom(role="search" action= locale+"/search" method="get")
+                input.w3-input.w3-border.w3-card-2(type="text" id="keywords" name="keywords" placeholder=__('templates.boardlist.search_holder'))
             hr 
             each board in data.boards.results
                 include public_board

@@ -11,7 +11,6 @@ exports = module.exports = function (req, res) {
 		boards: [],
 	}; 
 
-	// Load all tickets
 	view.on('init', function (next) {
 
 		//== Check payment for one month

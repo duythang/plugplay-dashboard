@@ -6,7 +6,7 @@ block content
 			.w3-container
 				.w3-large.w3-center
 					br
-					a(href='/')
-						img.w3-margin-top(src='/images/img_avatar.png', alt='Avatar', style='width:20%')
+					a(href= locale)
+						img.w3-margin-top(src='/images/img_avatar.png', alt='Avatar', style='width:100px')
 					p.w3-xxxlarge.w3-text-red: b Error (500)
-					h3 Sorry, the site has encountered an error.
+					h3 #{__('templates.500.line_01')}

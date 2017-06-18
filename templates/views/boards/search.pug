@@ -3,10 +3,10 @@ extends ../../layouts/default
 block content
     .w3-content
         .w3-row-padding.w3-padding-64
-            h3 Search Results
-            h4.w3-text-red "#{data.keywords || title}" search results.
+            h3 #{__('templates.search.header')} 
+            h4.w3-text-red "#{data.keywords || title}" #{__('templates.search.line_01')} 
             hr
             each board in data.boards
                 include public_board
-            //include pagination 
+            // include pagination 
             // TODO Why have to include pagination here
