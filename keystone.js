@@ -29,8 +29,8 @@ keystone.init({
 	// ssl solution 1
 	'ssl port' : process.env.SSLPORT || 3001,
 	'ssl' : 'force',
-	'ssl key':  __dirname + 'ssl-privkey-key.pem',
-	'ssl cert': __dirname + 'ssl-fullchain-cert.pem',
+	'ssl key':  __dirname + 'web-key.pem',
+	'ssl cert': __dirname + 'web-cert.pem',
 	/*/ ssl solution 2 issue
 	'letsencrypt': (process.env.NODE_ENV === 'production') && {
 		email: 'pdthang59@gmail.com',
