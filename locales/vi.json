@@ -1,0 +1,275 @@
+{
+	"routes": {
+		"deluser": {
+			"suc_del": "Đã xóa tài khoản thành công"
+		},
+		"editpwd": {
+			"err_fill": "Hãy điền tất cả các trường",
+			"err_pwdLength": "Hãy nhập một mật khẩu nhiều hơn 6 kí tự",
+			"err_pwdMatch": "Hãy chắc chắn rằng cả 2 mật khẩu trùng khớp",
+			"suc_changePwd": "Đã thay đổi mật khẩu thành công",
+			"err_": "Đã có lỗi xẩy ra, bạn hãy thử lại lần nữa"
+		},
+		"forgotpwd": {
+			"err_fill": "Hãy điền địa chỉ email",
+			"err_email": "Xin lỗi, địa chỉ email đã có người sử dụng",
+			"email_subject": "Thay Đổi Mật Khẩu",
+			"err_sendEmail": "Không thể gửi một email để khôi phục lại mật khẩu",
+			"suc_sendEmail": "Chúng tôi đã gửi cho bạn một email để khôi phục lại mật khấu"
+		},
+		"resetpwd": {
+			"err_pwdKey": "Xin lỗi, mã số mật khẩu không hợp lệ",
+			"err_fill": "Hãy điền tất cả các trường",
+			"err_pwdLength": "Hãy nhập một mật khẩu nhiều hơn 6 kí tự",
+			"err_pwdMatch": "Hãy chắc chắn rằng cả 2 mật khẩu trùng khớp",
+			"suc_resetPwd": "Mật khẩu của bạn đã được khôi phục"
+		},
+		"signup": {
+			"err_fill": "Hãy điền tất cả các trường",
+			"err_pwdLength": "Hãy nhập một mật khẩu nhiều hơn 6 kí tự",
+			"err_pwdMatch": "Hãy chắc chắn rằng cả 2 mật khẩu trùng khớp",
+			"err_userExist": "User name đã có người sử dụng",
+			"err_emailExist": "Email đã có người sử dụng",
+			"suc_signup": "Bạn đã đăng ký thành công",
+			"err_": "Đã có lỗi xẩy ra, bạn hãy thử lại lần nữa"
+		},
+		"profile": {
+			"suc_changeProfile": "Thông tin cá nhân của bạn đã được cập nhật"
+		},
+		"login": {
+			"err_fill": "Hãy điền tất cả các trường",
+			"suc_login": "Bạn đã đăng nhập thành công",
+			"err_": "Thông tin cung cấp không chính xác, bạn hãy thử lại lần nữa"
+		},
+		"logout": {},
+		"boardlist": {},
+		"delBoard": {
+			"suc_delBoard": "Bạn đã xóa Board thành công"
+		},
+		"editboard": {
+			"suc_changeBoard": "Bạn đã thay đổi Board thành công"
+		},
+		"myboard": {},
+		"newboard": {
+			"warn_overBoard": "Số lượng Board của bạn đã vượt quá. Liên hệ chúng tôi để năng cấp tài khoản của bạn",
+			"suc_createBoard": "Bạn đã tạo thành công một Board"
+		},
+		"search": {},
+		"singleboard": {},
+		"others": {
+			"about": {},
+			"pricing": {}
+		},
+		"middleware": {
+			"label_01": "XEM BOARD",
+			"label_02": "TẠO BOARD",
+			"err_auth": "Bạn phải đăng nhập để có thể xem được trang này"
+		}
+	},
+	"templates": {
+		"404": {
+			"line_01": "Xin lỗi, trang mà bạn yêu cầu không tìm thấy."
+		},
+		"500": {
+			"line_01": "Xin lỗi, trang mà bạn yêu cầu đã xảy ra lỗi"
+		},
+		"email": {
+			"hello": "Xin chào",
+			"line_01": "You recently requested a link to reset your",
+			"line_02": "password. Please click the link below:",
+			"line_03": "If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.",
+			"line_04": "For more questions, feel free to contact us: contact@plugplay.co"
+		},
+		"default": {
+			"support": "HỖ TRỢ",
+			"pricing": "BẢNG GIÁ",
+			"user": "NGƯỜI DÙNG",
+			"profile": "THÔNG TIN CÁ NHÂN",
+			"logout": "ĐĂNG XUẤT",
+			"login": "ĐĂNG NHẬP",
+			"follow": "Follow Us"
+		},
+		"forgotpwd": {
+			"email": "Email",
+			"email_holder": "Nhập địa chỉ email của bạn",
+			"reset": "THIẾT LẬP LẠI"
+		},
+		"signup": {
+			"username": "User Name",
+			"username_holder": "Nhập user name của bạn",
+
+			"firstname": "Tên",
+			"firstname_holder": "Nhập tên của bạn",
+
+			"lastname": "Họ",
+			"lastname_holder": "Nhập họ của bạn",
+
+			"email": "Email",
+			"email_holder": "Nhập địa chỉ email của bạn",
+
+			"pwd": "Mật khẩu",
+			"pwd_holder": "Nhập mật khẩu của bạn",
+
+			"confirm_pwd": "Xác nhận mật khẩu",
+			"confirm_pwd_holder": "Nhập mật khẩu ở trên một lần nữa",
+
+			"signup": "ĐĂNG KÝ",
+			"forgot_pwd": "Quên mật khẩu",
+			"login": "Đăng nhập"
+		},
+		"phone": {
+			"country_code": "Mã vùng điện thoại"
+		},
+		"profile": {
+			"header": "Thông Tin Cá Nhân",
+			"user_name": " User Name",
+			"full_name": "Họ Tên",
+			"phone": "Số Điện Thoại",
+			"phone_holder": "Nhập số điện thoại của bạn",
+			"email": "Email",
+			"from": "Nơi ở",
+			"from_holder": "Bạn sống ở đâu",
+			"user_type": "Loại Tài Khoản",
+			"user_key": "User Key",
+			"upgraded": "Nâng Cấp Lúc",
+			"edit_profile": "Sửa thông tin cá nhân",
+			"edit_pwd": "Sửa mật khẩu",
+
+			"firstname": "Tên",
+			"firstname_holder": "Nhập tên của bạn",
+
+			"lastname": "Họ",
+			"lastname_holder": "Nhập họ của bạn",
+
+			"country_code": "Mã Vùng Điện Thoại",
+			"submit": "GỬI",
+
+			"new_pwd": "Mật khẩu mới",
+			"new_pwd_holder": "Nhập mật khẩu mới của bạn",
+
+			"confirm_pwd": "Xác nhận mật khẩu",
+			"confirm_pwd_holder": "Nhập mật khẩu ở trên một lần nữa",
+
+			"try_now": "Thử Ngay",
+			"go_home": "Trở về trang chủ",
+			"go_board_list": "Xem tất cả các Board",
+			"go_new_board": "Tạo một Board mới",
+			"upgrade_account": "Nâng cấp tài khoản của bạn",
+			"line_01": "Nếu bạn không muốn sử dụng các dịch vụ của chúng tôi nữa, hãy xóa tài khoản ở đây",
+			"delete_acc": "XÓA TÀI KHOẢN",
+			"confirm_delete": "XÁC NHẬN",
+			"line_02": "Bạn có muốn xóa tài khoản này không ?",
+			"yes": "CÓ",
+			"no": "KHÔNG"
+		},
+		"resetpwd": {
+			"pwd": "Mật khẩu",
+			"pwd_holder": "Nhập mật khẩu của bạn",
+
+			"confirm_pwd": "Xác nhận mật khẩu",
+			"confirm_pwd_holder": "Nhập mật khẩu ở trên một lần nữa",
+
+			"reset": "THIẾT LẬP LẠI"
+		},
+		"login": {
+			"email": "Email",
+			"email_holder": "Nhập địa chỉ email của bạn",
+
+			"pwd": "Mật khẩu",
+			"pwd_holder": "Nhập mật khẩu của bạn",
+
+			"login": "ĐĂNG NHẬP",
+			"forgot_pwd": "Quên mật khẩu",
+			"new_acc": "Đăng ký tài khoản"
+		},
+		"boardlist": {
+			"header": "Tổng Hợp Các Board",
+			"search_holder": "Tìm kiếm dựa vào tên board và người tạo"
+		},
+		"editboard": {
+			"header": "Chỉnh Sửa Board",
+
+			"title": "Tên",
+			"title_holder": "Nhập tên board",
+
+			"type": "Loại",
+			"choose_opt": "Chọn thiết lập của bạn",
+			"public": "Công khai",
+			"private": "Riêng tư",
+			"save": "LƯU"		
+		},
+		"myboard": {
+			"user_key": "User Key",
+			"show_hide": "Hiện-Ẩn",
+			"help": "TRỢ GIÚP",		
+			"line_01": " để tạo một Board mới",
+			"data": "DATA",
+			"line_02": " để tải Data Log",
+			"edit": "SỬA",
+			"line_03": " để chỉnh sửa tên Board và chế độ riêng tư",
+			"delete": "XÓA",
+			"line_04": " để xóa Board",
+			"upgrade": "NÂNG CẤP",
+			"line_05": "Nếu bạn cần sử dụng nhiều Board hơn",
+			"new_board": "TẠO BOARD",
+			"line_06": "Nếu bạn cần sử dụng đầy đủ các plugin",
+			"confirm_del": "XÁC NHẬN",
+			"line_07": "Bạn có muốn xóa Board này ?",
+			"yes": "CÓ",
+			"no": "KHÔNG"
+		},
+		"newboard": {
+			"header": "Tạo Board",
+
+			"title": "Tên",
+			"title_holder": "Nhập tên board",
+
+			"type": "Loại",
+			"choose_opt": "Chọn thiết lập của bạn",
+			"public": "Công khai",
+			"private": "Riêng tư",
+			"create": "TẠO BOARD"
+		},
+		"private_board": {
+			"title": "Tên",
+			"type": "Loại",
+			"created_at": "Tạo lúc",
+			"board_id": "Board Id"
+		},
+		"public_board": {
+			"author": "Người Tạo",
+			"type": "Loại",
+			"created_at": "Tạo Lúc"
+		},
+		"search": {
+			"header": "Các kết quả tìm kiếm",
+			"line_01": "kết quả tìm kiếm."
+		},
+		"singleboard": {
+			"add_pane": "Thêm Pane",
+			"import": "Sử dụng thiết lập",
+			"export": "Lưu thiết lập",
+			"datasources": "NGUỒN DỮ LIỆU",
+			"name": "Tên",
+			"last_update": "Cập nhật lúc",
+			"add": "THÊM"
+		},
+		"about": {},
+		"pricing": {
+			"line_01": "Liên hệ chúng tôi ",
+			"line_02": "để nâng cấp tài khoản của bạn."
+		},
+		"index": {
+			"sologan": "Makes IoT Close to People",
+			"try_now": "THỬ NGAY",
+			"users": "Users",
+			"boards": "Boards",
+			"line_01": "Cách",
+			"line_02": "Hoạt Động",
+			"features": "TÍNH NĂNG",
+			"hardware": "PHẦN CỨNG",
+			"language": "NGÔN NGỮ",
+			"team": "VỀ CHÚNG TÔI"
+		}
+	}
+}

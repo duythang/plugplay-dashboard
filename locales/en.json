@@ -1,0 +1,256 @@
+{
+	"routes": {
+		"deluser": {
+			"suc_del": "Deleted account successfully"
+		},
+		"editpwd": {
+			"err_fill": "Enter all required fields",
+			"err_pwdLength": "Enter more than 6 characters for password",
+			"err_pwdMatch": "Make sure both passwords match",
+			"suc_changePwd": "Changed password successfully",
+			"err_": "There was a problem signing you up, please try again"
+		},
+		"forgotpwd": {
+			"err_fill": "Enter the email address",
+			"err_email": "Sorry, That email address is not registered",
+			"email_subject": "Reset your password",
+			"err_sendEmail": "Cannot send a reset email",
+			"suc_sendEmail": "We have emailed you a link to reset your password"
+		},
+		"resetpwd": {
+			"err_pwdKey": "Sorry, That reset password key isn't valid",
+			"err_fill": "Enter all required fields",
+			"err_pwdLength": "Enter more than 6 characters for password",
+			"err_pwdMatch": "Make sure both passwords match",
+			"suc_resetPwd": "Your password has been reset"
+		},
+		"signup": {
+			"err_fill": "Enter all required fields",
+			"err_pwdLength": "Enter more than 6 characters for password",
+			"err_pwdMatch": "Make sure both passwords match",
+			"err_userExist": "User already exists with that Username",
+			"err_emailExist": "User already exists with that email address",
+			"suc_signup": "You signed up successfully",
+			"err_": "There was a problem signing you up, please try again"
+		},
+		"profile": {
+			"suc_changeProfile": "Changed profile successfully"
+		},
+		"login": {
+			"err_fill": "Enter all required fields",
+			"suc_login": "Logged in successfully",
+			"err_": "Input credentials were incorrect, please try again"
+		},
+		"logout": {},
+		"boardlist": {},
+		"delBoard": {
+			"suc_delBoard": "Deleted board successfully"
+		},
+		"editboard": {
+			"suc_changeBoard": "Changed board successfully"
+		},
+		"myboard": {},
+		"newboard": {
+			"warn_overBoard": "Your number of boards is over! Contact us to upgrade your account",
+			"suc_createBoard": "Your board has been created"
+		},
+		"search": {},
+		"singleboard": {},
+		"others": {
+			"about": {},
+			"pricing": {}
+		},
+		"middleware": {
+			"label_01": "BOARDS",
+			"label_02": "NEW BOARD",
+			"err_auth": "Please login to access this page"
+		}
+	},
+	"templates": {
+		"404": {
+			"line_01": "Sorry, the page you requested can't be found."
+		},
+		"500": {
+			"line_01": "Sorry, the site has encountered an error."
+		},
+		"email": {
+			"hello": "Hello",
+			"line_01": "You recently requested a link to reset your",
+			"line_02": "password. Please click the link below:",
+			"line_03": "If this email was sent to you by mistake, please ignore it. You will not be resetted password if you do not click on the reset link above.",
+			"line_04": "For more questions, feel free to contact us: contact@plugplay.co"
+		},
+		"default": {
+			"support": "SUPPORT",
+			"pricing": "PRICING",
+			"user": "USER",
+			"profile": "PROFILE",
+			"logout": "LOGOUT",
+			"login": "LOGIN",
+			"follow": "Follow Us"
+		},
+		"forgotpwd": {
+			"email": "Email",
+			"email_holder": "Enter email",
+			"reset": "Reset My Password"
+		},
+		"signup": {
+			"username": "User Name",
+			"username_holder": "Enter user name",
+			"firstname": "First Name",
+			"firstname_holder": "Enter first name",
+			"lastname": "Last Name",
+			"lastname_holder": "Enter last name",
+			"email": "Email",
+			"email_holder": "Enter email",
+			"pwd": "Password",
+			"pwd_holder": "Enter password",
+			"confirm_pwd": "Confirm Password",
+			"confirm_pwd_holder": "Confirm password",
+			"signup": "Sign up",
+			"forgot_pwd": "Forgot password",
+			"login": "Login"
+		},
+		"phone": {
+			"country_code": "Country Code"
+		},
+		"profile": {
+			"my_profile": "My Profile",
+			"user_name": " User Name",
+			"full_name": "Full Name",
+			"phone": "Phone",
+			"phone_holder": "Phone",
+			"email": "Email",
+			"from": "From",
+			"from_holder": "Where you live",
+			"user_type": "User Type",
+			"user_key": "User Key",
+			"upgraded": "Upgraded",
+			"edit_profile": "Edit Profile",
+			"edit_pwd": "Edit Password",
+			"firstname": "First Name",
+			"firstname_holder": "First name",
+			"lastname": "Last Name",
+			"lastname_holder": "Last name",
+			"country_code": "Country Code",
+			"submit": "Submit",
+			"new_pwd": "New Password",
+			"new_pwd_holder": "Enter a new password",
+			"confirm_pwd": "Confirm Password",
+			"confirm_pwd_holder": "Confirm password",
+			"try_now": "Try now",
+			"go_home": "Go to Home Page",
+			"go_board_list": "Go to Board List",
+			"go_new_board": "Create New Board",
+			"upgrade_account": "Upgrade your account",
+			"line_01": "If don't want to use our services more, you can delete your account here !",
+			"delete_acc": "Delete Account",
+			"confirm_delete": "Confirm",
+			"line_02": "Do you want to delete your account ?",
+			"yes": "Yes",
+			"no": "No",
+			"header": "templates.profile.header"
+		},
+		"resetpwd": {
+			"pwd": "Password",
+			"pwd_holder": "Enter password",
+			"confirm_pwd": "Confirm Password",
+			"confirm_pwd_holder": "Confirm password",
+			"reset": "Reset"
+		},
+		"login": {
+			"email": "Email",
+			"email_holder": "Enter email",
+			"pwd": "Password",
+			"pwd_holder": "Enter password",
+			"login": "Login",
+			"forgot_pwd": "Forgot password",
+			"new_acc": "New account"
+		},
+		"boardlist": {
+			"header": "Boards List",
+			"search_holder": "Search for Board Title or Author"
+		},
+		"editboard": {
+			"header": "Edit Board",
+			"title": "Title",
+			"title_holder": "Enter title",
+			"type": "Type",
+			"choose_opt": "Choose your option",
+			"public": "Public",
+			"private": "Private",
+			"save": "Save"
+		},
+		"myboard": {
+			"user_key": "User Key",
+			"show_hide": "Show-Hide",
+			"help": "Help",
+			"new_board": "New Board",
+			"data": "Data",
+			"edit": "Edit",
+			"delete": "Delete",
+			"upgrade": "Upgrade",
+			"line_01": "to create a new board",
+			"line_02": "to download board 's data log",
+			"line_03": "to edit board 's name and privacy",
+			"line_04": "to delete board",
+			"line_05": "Need to use more board",
+			"line_06": "Need to use full plugins",
+			"confirm_del": "Confirm to delete",
+			"line_07": "Do you want to delete this board ?",
+			"yes": "Yes",
+			"no": "No"
+		},
+		"newboard": {
+			"header": "Create New Board",
+			"title": "Title",
+			"title_holder": "Enter title",
+			"type": "Type",
+			"choose_opt": "Choose your option",
+			"public": "Public",
+			"private": "Private",
+			"create": "Create"
+		},
+		"private_board": {
+			"title": "Title",
+			"type": "Type",
+			"created_at": "Created At",
+			"board_id": "Board Id"
+		},
+		"public_board": {
+			"author": "Author",
+			"type": "Type",
+			"created_at": "Created At"
+		},
+		"search": {
+			"header": "Search Results",
+			"line_01": "search results."
+		},
+		"singleboard": {
+			"add_pane": "Add Pane",
+			"import": "Import",
+			"export": "Export",
+			"datasources": "DATASOURCES",
+			"name": "Name",
+			"last_update": "Last Updated",
+			"add": "ADD"
+		},
+		"about": {},
+		"pricing": {
+			"line_01": "Contact us ",
+			"line_02": "to upgrade your account."
+		},
+		"index": {
+			"sologan": "Makes IoT Close to People",
+			"try_now": "Try Now",
+			"users": "Users",
+			"boards": "Boards",
+			"line_01": "How",
+			"line_02": "works",
+			"features": "Features",
+			"hardware": "Hardware Support",
+			"language": "Language Support",
+			"team": "About our team"
+		}
+	}
+}

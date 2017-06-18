@@ -1,0 +1,24 @@
+extends ../../layouts/default
+include ../../mixins/flash-messages
+
+block content
+    .w3-content
+        .w3-row-padding.w3-padding-128
+            .w3-modal-content.w3-card-8.w3-animate-zoom(style='max-width:400px')
+                .w3-center
+                    br
+                    a(href= locale)
+                        img.w3-margin-top(src='/images/img_avatar.png', alt='Avatar', style='width:20%')
+                +flash-messages(messages)
+                form.w3-container(action= locale+'/login' method="post")
+                    .w3-section
+                        label: b #{__('templates.login.email')} 
+                        input.w3-input.w3-border.w3-margin-bottom(type='email', placeholder=__('templates.login.email_holder'), name='email', required='')
+                        label: b #{__('templates.login.pwd')} 
+                        input.w3-input.w3-border(type='password', placeholder=__('templates.login.pwd_holder'), name='password', required='')
+                        button.w3-button.w3-block.w3-gray.w3-section.w3-padding.w3-hover-green(type='submit') #{__('templates.login.login')} 
+                .w3-container.w3-border-top.w3-padding-16.w3-light-grey
+                    span.w3-right.w3-padding
+                        a(href= locale+'/forgotpassword') #{__('templates.login.forgot_pwd')} 
+                    span.w3-left.w3-padding
+                        a(href= locale+'/signup') #{__('templates.login.new_acc')} 

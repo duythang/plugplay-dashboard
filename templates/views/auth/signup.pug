@@ -1,0 +1,37 @@
+extends ../../layouts/default
+include ../../mixins/flash-messages
+
+block content
+    .w3-content
+        .w3-row-padding.w3-padding-128
+            .w3-modal-content.w3-card-8.w3-animate-zoom(style='max-width:400px')
+                .w3-center
+                    br
+                    a(href= locale)
+                        img.w3-margin-top(src='/images/img_avatar.png', alt='Avatar', style='width:20%')
+                +flash-messages(messages)
+                form.w3-container(action= locale+'/signup', method="post")
+                    .w3-section
+                        label: b  #{__('templates.signup.username')}  
+                        input.w3-input.w3-border.w3-margin-bottom(type='text', placeholder=__('templates.signup.username_holder'), name='username', required='')
+                        .w3-row
+                            .w3-col(style="width:45%")
+                                label: b #{__('templates.signup.firstname')}  
+                                input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder=__('templates.signup.firstname_holder') name='firstname' required='')
+                            .w3-col(style="width:10%")
+                                label  &nbsp
+                            .w3-col(style="width:45%")
+                                label: b #{__('templates.signup.lastname')}  
+                                input.w3-input.w3-border.w3-margin-bottom(type='text' placeholder=__('templates.signup.lastname_holder') name='lastname' required='')
+                        label: b #{__('templates.signup.email')}  
+                        input.w3-input.w3-border.w3-margin-bottom(type='email', placeholder=__('templates.signup.email_holder'), name='email', required='')
+                        label: b #{__('templates.signup.pwd')}  
+                        input.w3-input.w3-border.w3-margin-bottom(type='password', placeholder=__('templates.signup.pwd_holder'), name='password', required='')
+                        label: b #{__('templates.signup.confirm_pwd')}  
+                        input.w3-input.w3-border.w3-margin-bottom(type='password', placeholder=__('templates.signup.confirm_pwd_holder'), name='password_confirm', required='')
+                        button.w3-button.w3-block.w3-gray.w3-section.w3-padding.w3-hover-green(type='submit') #{__('templates.signup.signup')}
+                .w3-container.w3-border-top.w3-padding-16.w3-light-grey
+                    span.w3-right.w3-padding
+                        a(href= locale+'/forgotpassword') #{__('templates.signup.forgot_pwd')}  
+                    span.w3-left.w3-padding
+                        a(href= locale+'/login') #{__('templates.signup.login')}  
