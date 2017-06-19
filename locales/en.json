@@ -28,7 +28,7 @@
 			"err_fill": "Enter all required fields",
 			"err_pwdLength": "Enter more than 6 characters for password",
 			"err_pwdMatch": "Make sure both passwords match",
-			"err_userExist": "User already exists with that Username",
+			"err_userExist": "User already exists with that username",
 			"err_emailExist": "User already exists with that email address",
 			"suc_signup": "You signed up successfully",
 			"err_": "There was a problem signing you up, please try again"
@@ -88,8 +88,8 @@
 			"reset": "Reset Password"
 		},
 		"signup": {
-			"username": "User Name",
-			"username_holder": "Enter user name",
+			"username": "Username",
+			"username_holder": "Enter username",
 			"firstname": "First Name",
 			"firstname_holder": "Enter first name",
 			"lastname": "Last Name",
@@ -109,7 +109,7 @@
 		},
 		"profile": {
 			"my_profile": "My Profile",
-			"user_name": " User Name",
+			"user_name": " Username",
 			"full_name": "Full Name",
 			"phone": "Phone",
 			"phone_holder": "Phone",

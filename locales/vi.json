@@ -28,7 +28,7 @@
 			"err_fill": "Hãy điền tất cả các trường",
 			"err_pwdLength": "Hãy nhập một mật khẩu nhiều hơn 6 kí tự",
 			"err_pwdMatch": "Hãy chắc chắn rằng cả 2 mật khẩu trùng khớp",
-			"err_userExist": "User name đã có người sử dụng",
+			"err_userExist": "Username đã có người sử dụng",
 			"err_emailExist": "Email đã có người sử dụng",
 			"suc_signup": "Bạn đã đăng ký thành công",
 			"err_": "Đã có lỗi xẩy ra, bạn hãy thử lại lần nữa"
@@ -76,8 +76,8 @@
 		"default": {
 			"support": "HỖ TRỢ",
 			"pricing": "BẢNG GIÁ",
-			"user": "NGƯỜI DÙNG",
-			"profile": "THÔNG TIN CÁ NHÂN",
+			"user": "CÀI ĐẶT",
+			"profile": "THÔNG TIN",
 			"logout": "ĐĂNG XUẤT",
 			"login": "ĐĂNG NHẬP",
 			"follow": "Follow Us"
@@ -88,8 +88,8 @@
 			"reset": "THIẾT LẬP"
 		},
 		"signup": {
-			"username": "User Name",
-			"username_holder": "Nhập user name của bạn",
+			"username": "Username",
+			"username_holder": "Nhập username của bạn",
 
 			"firstname": "Tên",
 			"firstname_holder": "Nhập tên của bạn",
@@ -115,7 +115,7 @@
 		},
 		"profile": {
 			"header": "Thông Tin Cá Nhân",
-			"user_name": " User Name",
+			"user_name": " Username",
 			"full_name": "Họ Tên",
 			"phone": "Số Điện Thoại",
 			"phone_holder": "Nhập số điện thoại của bạn",
