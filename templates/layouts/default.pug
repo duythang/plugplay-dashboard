@@ -68,28 +68,33 @@ html
 				
 				a#supportBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(class=(section === 'support' ? 'w3-green' : 'w3-grey') href='javascript:void(0)' onclick='supportClick()') 
 					| #{__('templates.default.support')}
+					|  &nbsp;
 					i.fa.fa-caret-down
 				#support.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
 					a.w3-bar-item.w3-button.w3-hover-black(href= locale +'/pricing') #{__('templates.default.pricing')} 
 					//-a.w3-bar-item.w3-button.w3-hover-black(href='') TUTORIALS
 					//-a.w3-bar-item.w3-button.w3-hover-black(href='') ISSUES
+					
+				a#langBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black.w3-grey(onclick='langClick()') 
+					i.w3-xlarge.fa.fa-globe
+					|  &nbsp;
+					i.fa.fa-caret-down 
+				#lang.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
+					a.w3-bar-item.w3-button.w3-hover-black(href='/en') ENGLISH
+					a.w3-bar-item.w3-button.w3-hover-black(href='/vi') TIẾNG VIỆT
 			
 				if user
 					a#userBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(class=(section === 'user' ? 'w3-green' : 'w3-grey') onclick='userClick()') 
-						| #{__('templates.default.user')} 
+						| #{__('templates.default.user')}
+						|  &nbsp;
 						i.fa.fa-caret-down
 					#user.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
 						a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/profile') #{__('templates.default.profile')} 
 						a.w3-bar-item.w3-button.w3-hover-black(href= locale+'/logout') #{__('templates.default.logout')} 
 				else
-					a.w3-bar-item.w3-button.w3-padding-large.w3-right.w3-hover-black(class=(section === 'login' ? 'w3-green' : null) href= locale+'/login') 
+					a.w3-bar-item.w3-button.w3-padding-large.w3-hover-black(class=(section === 'login' ? 'w3-green' : null) href= locale+'/login') 
 						| #{__('templates.default.login')} 
 
-				a#langBtn.w3-button.w3-block.w3-left-align.w3-padding-large.w3-hover-black(onclick='langClick()') 
-					i.w3-xlarge.fa.fa-globe 
-				#lang.w3-bar-block.w3-hide.w3-card-4.w3-padding-large.w3-medium
-					a.w3-bar-item.w3-button.w3-hover-black(href='/en') ENGLISH
-					a.w3-bar-item.w3-button.w3-hover-black(href='/vi') TIẾNG VIỆT
 
 		//- content
 		block content
@@ -143,7 +148,7 @@ html
 				if (l.className.indexOf("w3-show") == -1) {
 					l.className += " w3-show";
 				} else {
-					l.className = z.className.replace(" w3-show", "");
+					l.className = l.className.replace(" w3-show", "");
 				}
 			}
 		
