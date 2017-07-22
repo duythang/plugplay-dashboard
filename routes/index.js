@@ -84,6 +84,9 @@ exports = module.exports = function (app) {
     app.get('/api/rest/:id', keystone.middleware.api, routes.api.rest.getRestData);
     app.put('/api/rest/:id', keystone.middleware.api, routes.api.rest.putRestData);
 
+    // Demo
+    app.get('/api/mqtt/:id', keystone.middleware.api, routes.api.mqtt.getNumPass);
+
 	// Downloads
 	app.get('/download/users', routes.download.users);
     app.get('/download/mqtt/:id', routes.download.mqtt);
