@@ -141,8 +141,7 @@
 			"confirm_delete": "Confirm",
 			"line_02": "Do you want to delete your account ?",
 			"yes": "Yes",
-			"no": "No",
-			"header": "templates.profile.header"
+			"no": "No"
 		},
 		"resetpwd": {
 			"pwd": "Password",
